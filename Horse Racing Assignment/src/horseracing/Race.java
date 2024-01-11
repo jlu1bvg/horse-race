@@ -2,7 +2,6 @@ package horseracing;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Race {
     private List<Horse> horses;
@@ -46,9 +45,20 @@ public class Race {
     }
 
     public void displayRaceInfo() { //yields btw
+        /*
         Scanner console = new Scanner(System.in);
         String result = "y"; 
-    
+        */
+        System.out.println("Race Information:");
+        System.out.println("Race Surface: " + raceSurface);
+        System.out.println("Race Length: " + raceLength + " furlongs");
+        System.out.println("List of Horses:");
+        for (Horse horse : horses) {
+            System.out.println("- " + horse.getName());
+        }
+        BetDialogue betDialogue = new BetDialogue(player);
+        betDialogue.CreateBetDialogue(player);
+        /* 
         while (result.equals("y")) {
             System.out.println("Race Information:");
             System.out.println("Race Surface: " + raceSurface);
@@ -117,7 +127,9 @@ public class Race {
             } else {
                 break; 
             }
+
         }
+        */
     }
 
     

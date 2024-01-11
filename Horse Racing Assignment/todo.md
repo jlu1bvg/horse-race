@@ -11,9 +11,9 @@ Renaming
 # Bet
 New bet methods:
     Picking the top 2/3 (hard)
-Moving bet system to a seperate class for organization
+~~Moving bet system to a seperate class for organization~~
 
-Fix mem leak
+~~Fix mem leak~~
 
 # Battle system???
 See if you're better than other players at betting with a built in player system??
