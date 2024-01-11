@@ -22,3 +22,4 @@ See if you're better than other players at betting with a built in player system
 Circular track
 
 # More stuff and improvements
+Fix flashing
