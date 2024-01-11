@@ -3,7 +3,6 @@ package horseracing;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.InputMismatchException;
 
 public class Race {
     private List<Horse> horses;
@@ -58,7 +57,7 @@ public class Race {
             for (Horse horse : horses) {
                 System.out.println("- " + horse.getName());
             }
-    
+            System.out.println("Remaining money: " + player.getMoney());
             System.out.println("do u want to bet (y/n)");
             result = console.nextLine();
     
@@ -87,7 +86,6 @@ public class Race {
                 }
 
                 if (betOnPosition.equals("n")) {
-                    System.out.println("You bet " + amount + " on " + horseName + " to win");
                     player.placeBet(amount, horseName);
                 } else if (betOnPosition.equals("y")) {
                     int position = 0;
