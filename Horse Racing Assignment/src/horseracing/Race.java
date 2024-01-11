@@ -102,8 +102,6 @@ public class Race {
                             System.out.println("eric tan i know it was you");
                         }
                     }
-                    console.nextLine(); 
-                    System.out.println("You bet " + amount + " on " + horseName + " to place " + position);
                     player.placeBet(amount, horseName, position);
                 }
     
