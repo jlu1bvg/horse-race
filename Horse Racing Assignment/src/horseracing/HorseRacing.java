@@ -17,7 +17,7 @@ public class HorseRacing {
             race.displayRaceInfo();
 
             race.startRace();
-            //gojo satoru was here. fraudkuna dont stand a chance!
+            
             System.out.println("Race is Over");
             gameOver = playAgain(in);
         }
