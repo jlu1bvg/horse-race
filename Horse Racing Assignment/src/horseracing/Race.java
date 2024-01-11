@@ -63,9 +63,17 @@ public class Race {
             result = console.nextLine();
     
             if (result.equals("y")) {
-                System.out.println("how much do u bet");
-                int amount = console.nextInt();
-                console.nextLine();
+                int amount = 0;
+                boolean validBetEntered = false;
+                while (!validBetEntered) {
+                    try {
+                        System.out.println("how much do u bet");
+                        amount = Integer.parseInt(console.nextLine());
+                        validBetEntered = true;
+                    } catch (NumberFormatException e) {
+                        System.out.println("etan stop messing with me");
+                    }
+                }
     
                 System.out.println("which horse do u choose? (say name)");
                 String horseName = console.nextLine();
@@ -74,25 +82,42 @@ public class Race {
                 String betOnPosition = console.nextLine();
     
                 if(!betOnPosition.equals("y") && !betOnPosition.equals("n")){
-                    throw new InputMismatchException("enter y or n you aren't funny I bet this is eric trying to break the system");
+                    System.out.println("not valid so i ma take it as a no. ill take away all ur money though, congrats.");
+                    //get some setter to remove player money rq
                 }
 
                 if (betOnPosition.equals("n")) {
                     System.out.println("You bet " + amount + " on " + horseName + " to win");
                     player.placeBet(amount, horseName);
                 } else if (betOnPosition.equals("y")) {
-                    System.out.println("Which position do you bet on? (say number)");
-                    if(!console.hasNextInt()){
-                        throw new InputMismatchException("silly goober enter a number you aren't funny");
+                    int position = 0;
+                    boolean validPosEntered = false;
+
+                    while (!validPosEntered) {
+                        try {
+                            System.out.println("Which position do you bet on? (say number)");
+                            position = Integer.parseInt(console.nextLine());
+                            validPosEntered = true;
+                        } catch (NumberFormatException e) {
+                            System.out.println("eric tan i know it was you");
+                        }
                     }
-                    int position = console.nextInt();
                     console.nextLine(); 
                     System.out.println("You bet " + amount + " on " + horseName + " to place " + position);
                     player.placeBet(amount, horseName, position);
                 }
     
                 System.out.println("Do you want to continue betting? (y/n)");
-                result = console.nextLine();
+                
+                String temp = console.nextLine();
+
+                if(!temp.equals("y") && !temp.equals("n")){
+                    result = "n";
+                    System.out.println("Invalid again so I ma ban you from the game goodbye");
+                    //crash the client or something 
+                }
+
+                result = temp;
             } else {
                 break; 
             }
