@@ -46,7 +46,7 @@ public class Race {
         return raceSurface;
     }
 
-    public void displayRaceInfo() {
+    public void displayRaceInfo() { //yields btw
         Scanner console = new Scanner(System.in);
         String result = "y"; 
     
@@ -123,6 +123,7 @@ public class Race {
             }
         }
     }
+
     
 
     public void displayResults(){
