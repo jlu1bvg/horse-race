@@ -10,7 +10,7 @@ public class Horse{
         private int currentPosition;
         private boolean finishedRace;
         private int number;
-
+        //test commit
         public Horse(String name, int mudRating, int grassRating, int dirtRating, double preferredLength) {
             this.name = name;
             this.mudRating = mudRating;
