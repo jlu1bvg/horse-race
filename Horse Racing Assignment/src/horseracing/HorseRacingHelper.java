@@ -89,7 +89,7 @@ public class HorseRacingHelper {
         return shuffledList.subList(0, n);
     }
 
-    public static Race createRace(int numHorses, int raceType, int raceTerrain){
+    public static Race createRace(int numHorses, int raceType, int raceTerrain, Player player){
         double[] raceLengths;
         if (raceType == SHORT)
             raceLengths = SHORT_RACES;
@@ -115,7 +115,7 @@ public class HorseRacingHelper {
         for (int j = 1; j <= horses.size(); j++) {
             horses.get(j-1).setNumber(j);
         }
-        return new Race(horses, raceLength, terrain);
+        return new Race(horses, raceLength, terrain, player);
     }
 
     public static void clearConsole() {
