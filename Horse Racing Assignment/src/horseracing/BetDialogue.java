@@ -10,25 +10,29 @@ public class BetDialogue {
     public void CreateBetDialogue(Player player){
         String result = "y"; 
         System.out.println("Remaining money: " + player.getMoney());
-        System.out.println("do u want to bet (y/n)");
+        System.out.println("Do u want to place a bet (y/n)");
         result = console.nextLine();
         while (result.equals("y")) {
                 int amount = 0;
                 boolean validBetEntered = false;
                 while (!validBetEntered) {
                     try {
-                        System.out.println("how much do u bet");
+                        System.out.println("How much do u bet");
                         amount = Integer.parseInt(console.nextLine());
-                        validBetEntered = true;
+                        if (amount <= player.getMoney()){
+                            validBetEntered = true;
+                        }else{
+                            System.out.println("You're too poor to place this bet. Please try again: ");
+                        }
                     } catch (NumberFormatException e) {
-                        System.out.println("etan stop messing with me");
+                        System.out.println("Enter an integer please: ");
                     }
                 }
     
-                System.out.println("which horse do u choose? (say name)");
+                System.out.println("Which horse do u choose? (say name)");
                 String horseName = console.nextLine();
     
-                System.out.println("do you want to do an exactor? (y/n)");
+                System.out.println("Do you want to do an exactor? (y/n)");
                 String betOnPosition = console.nextLine();
     
                 if(!betOnPosition.equals("y") && !betOnPosition.equals("n")){

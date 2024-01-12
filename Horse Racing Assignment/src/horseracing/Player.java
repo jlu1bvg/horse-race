@@ -23,9 +23,7 @@ public class Player {
         if(money >= amount){
            potentialEarnings.put(horseName, amount+10);
            money -= amount;
-           System.out.println("bet of " + amount + " on " + horseName + " positioned " + position + " placed");
-        }else{
-            System.out.println("too poor to place bet of " + amount + " on " + horseName + " to place.");
+           System.out.println("Bet of " + amount + " on " + horseName + " positioned " + position + " placed");
         }
     }
 
@@ -34,8 +32,6 @@ public class Player {
            money -= amount;
            potentialEarnings.put(horseName, amount+1);
             System.out.println("bet of " + amount + " on " + horseName + " to win placed");
-        }else{
-            System.out.println("too poor to place bet of " + amount + " positioned " + horseName + " to win");
         }
     }
 }
