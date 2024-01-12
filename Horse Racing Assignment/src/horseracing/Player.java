@@ -28,7 +28,7 @@ public class Player {
            money -= amount;
            System.out.println("bet of " + amount + " on " + horseName + " positioned " + position + " placed");
         }else{
-            System.out.println("too poor to place bet of " + amount + " on " + horseName + " to place");
+            System.out.println("too poor to place bet of " + amount + " on " + horseName + " to place.");
         }
     }
 

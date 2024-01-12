@@ -9,13 +9,10 @@ public class BetDialogue {
     }
     public void CreateBetDialogue(Player player){
         String result = "y"; 
-    
+        System.out.println("Remaining money: " + player.getMoney());
+        System.out.println("do u want to bet (y/n)");
+        result = console.nextLine();
         while (result.equals("y")) {
-            System.out.println("Remaining money: " + player.getMoney());
-            System.out.println("do u want to bet (y/n)");
-            result = console.nextLine();
-    
-            if (result.equals("y")) {
                 int amount = 0;
                 boolean validBetEntered = false;
                 while (!validBetEntered) {
@@ -40,7 +37,6 @@ public class BetDialogue {
                 }
 
                 if (betOnPosition.equals("n")) {
-                    player.placeBet(amount, horseName);
                 } else if (betOnPosition.equals("y")) {
                     int position = 0;
                     boolean validPosEntered = false;
@@ -68,10 +64,7 @@ public class BetDialogue {
                 }
 
                 result = temp;
-            } else {
-                break; 
-            }
-        }
+            } 
     }
 
     public void CloseDialogue(){
