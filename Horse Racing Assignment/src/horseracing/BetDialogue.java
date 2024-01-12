@@ -28,7 +28,7 @@ public class BetDialogue {
                 System.out.println("which horse do u choose? (say name)");
                 String horseName = console.nextLine();
     
-                System.out.println("do you want to bet the position? (y/n)");
+                System.out.println("do you want to do an exactor? (y/n)");
                 String betOnPosition = console.nextLine();
     
                 if(!betOnPosition.equals("y") && !betOnPosition.equals("n")){
