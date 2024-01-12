@@ -5,6 +5,9 @@ Better formula for calculating rewards based on the estimated chances of winning
 # Display
 Display chance of winnings for each horse (thru a calculation method)
 
+# Horse movement
+Horses should be moving x studs based on the stats and preferences
+
 # Terrain
 Air
 Ocean
