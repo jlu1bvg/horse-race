@@ -24,7 +24,7 @@ public class Player {
 
     public void placeBet(int amount, String horseName, int position){
         if(amount <= money){
-           potentialEarnings.put(horseName, 2 * amount);
+           potentialEarnings.put(horseName, amount+10);
            money -= amount;
            System.out.println("bet of " + amount + " on " + horseName + " positioned " + position + " placed");
         }else{
@@ -35,7 +35,7 @@ public class Player {
     public void placeBet(int amount, String horseName){
         if(amount <= money){
            money -= amount;
-           potentialEarnings.put(horseName, amount);
+           potentialEarnings.put(horseName, amount+1);
             System.out.println("bet of " + amount + " on " + horseName + " to win placed");
         }else{
             System.out.println("too poor to place bet of " + amount + " positioned " + horseName + " to win");
