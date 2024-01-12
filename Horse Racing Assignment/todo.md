@@ -5,6 +5,14 @@ Better formula for calculating rewards based on the estimated chances of winning
 # Display
 Display chance of winnings for each horse (thru a calculation method)
 
+# Terrain
+Air
+Ocean
+Malevolent Kitchen
+Mountain
+Paradisus Varadero
+Oil Spill
+
 # Horse
 Renaming
 
