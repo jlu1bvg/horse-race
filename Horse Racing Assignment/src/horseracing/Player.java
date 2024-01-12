@@ -19,19 +19,22 @@ public class Player {
        
     }
 
-    public void placeBet(int amount, String horseName, int position){
+    public void placeBet(String betType, int amount, String horseName){
         if(money >= amount){
-           potentialEarnings.put(horseName, amount+10);
-           money -= amount;
-           System.out.println("Bet of " + amount + " on " + horseName + " positioned " + position + " placed");
-        }
-    }
-
-    public void placeBet(int amount, String horseName){
-        if(money >= amount){
-           money -= amount;
-           potentialEarnings.put(horseName, amount+1);
-            System.out.println("bet of " + amount + " on " + horseName + " to win placed");
+            if (betType.equals("win")){
+                potentialEarnings.put(horseName, amount*3);
+                money -= amount;
+                System.out.println("Bet of " + amount + " on " + horseName + " to come first place");
+            }else if (betType.equals("place")){
+                potentialEarnings.put(horseName, amount*3);
+                money -= amount;
+                System.out.println("Bet of " + amount + " on " + horseName + " to come first or second place");
+            }
+            else if (betType.equals("show")){
+                potentialEarnings.put(horseName, amount*3);
+                money -= amount;
+                System.out.println("Bet of " + amount + " on " + horseName + " to come first, second or third place");
+            }
         }
     }
 }

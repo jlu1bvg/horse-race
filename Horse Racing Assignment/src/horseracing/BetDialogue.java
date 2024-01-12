@@ -32,14 +32,11 @@ public class BetDialogue {
                 System.out.println("Which horse do u choose? (say name)");
                 String horseName = console.nextLine();
     
-                System.out.println("Do you want to do an exactor? (y/n)");
-                String betOnPosition = console.nextLine();
-    
-                if(!betOnPosition.equals("y") && !betOnPosition.equals("n")){
-                    System.out.println("not valid so i ma take it as a no. ill take away all ur money though, congrats.");
-                    //get some setter to remove player money rq
-                }
+                System.out.println("What type of bet do you want to place? (Win, Place, Show, Boxing, Exacta)");
+                String betType = console.nextLine();
 
+                player.placeBet(betType, amount, horseName);
+                /* 
                 if (betOnPosition.equals("n")) {
                     player.placeBet(amount, horseName);
                 } else if (betOnPosition.equals("y")) {
@@ -56,8 +53,9 @@ public class BetDialogue {
                         }
                     }
                     player.placeBet(amount, horseName, position);
+                    player.placeBet(betType, infos)
                 }
-    
+                */
                 System.out.println("Do you want to continue betting? (y/n)");
                 
                 String temp = console.nextLine();
