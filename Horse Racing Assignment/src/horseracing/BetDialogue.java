@@ -37,6 +37,7 @@ public class BetDialogue {
                 }
 
                 if (betOnPosition.equals("n")) {
+                    player.placeBet(amount, horseName);
                 } else if (betOnPosition.equals("y")) {
                     int position = 0;
                     boolean validPosEntered = false;

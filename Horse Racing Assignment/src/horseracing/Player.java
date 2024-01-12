@@ -16,14 +16,11 @@ public class Player {
     }
 
     public void betWon(String horseName){
-       if(potentialEarnings.containsKey(horseName)){
-            money += potentialEarnings.get(horseName);
-            potentialEarnings.remove(horseName);
-       }
+       
     }
 
     public void placeBet(int amount, String horseName, int position){
-        if(amount <= money){
+        if(money >= amount){
            potentialEarnings.put(horseName, amount+10);
            money -= amount;
            System.out.println("bet of " + amount + " on " + horseName + " positioned " + position + " placed");
@@ -33,7 +30,7 @@ public class Player {
     }
 
     public void placeBet(int amount, String horseName){
-        if(amount <= money){
+        if(money >= amount){
            money -= amount;
            potentialEarnings.put(horseName, amount+1);
             System.out.println("bet of " + amount + " on " + horseName + " to win placed");
