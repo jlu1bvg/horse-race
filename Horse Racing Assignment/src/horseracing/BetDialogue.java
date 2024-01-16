@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class BetDialogue {
     Scanner console;
     public BetDialogue(Player player) {
+        System.out.print("\u001B[?25l");
         console = new Scanner(System.in);
     }
     public void CreateBetDialogue(Player player){
