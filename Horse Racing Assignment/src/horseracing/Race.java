@@ -43,7 +43,7 @@ public class Race {
     public Horse getCurrentHorse(){
         return horses.get(currentHorse);
     }
-    
+
     public String getRaceSurface() {
         return raceSurface;
     }
@@ -70,6 +70,11 @@ public class Race {
         }
     }
 
+    private int getIncrement(Horse horse){
+        int increment = 0;
+        
+        return increment;
+    }
 
     public void startRace(){
         resetHorses();
