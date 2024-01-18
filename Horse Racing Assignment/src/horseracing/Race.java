@@ -49,6 +49,7 @@ public class Race {
     }
 
     public void displayRaceInfo() { 
+        Track t = new Track();
         System.out.println("Race Information:");
         System.out.println("Race Surface: " + raceSurface);
         System.out.println("Race Length: " + raceLength + " furlongs");
@@ -76,8 +77,6 @@ public class Race {
         BetDialogue betDialogue = new BetDialogue(player);
         betDialogue.CreateBetDialogue(player);
     }
-
-    
 
     public void displayResults(){
         System.out.println("\n\nRace Results");

@@ -2,7 +2,7 @@ package horseracing;
 
 public class Track{
 
-    public static void main(String[] args) {
+    public Track(){
         int lanes=5;
         for(int i=lanes;i>0;i--){
             for(int j=i*3;j>0;j--){
@@ -46,6 +46,9 @@ public class Track{
             System.out.print("/  ");
         }
         System.out.println("/");
+
+
     }
     }
+
 }
