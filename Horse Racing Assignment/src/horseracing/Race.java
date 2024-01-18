@@ -53,8 +53,25 @@ public class Race {
         System.out.println("Race Surface: " + raceSurface);
         System.out.println("Race Length: " + raceLength + " furlongs");
         System.out.println("List of Horses:");
-        for (Horse horse : horses) {
+        /*for (Horse horse : horses) {
             System.out.println("- " + horse.getName());
+        }
+        */
+        System.out.printf("%-20s| %-20s| %-15s |%-15s| %-15s |%-15s\n", "Horse Name", "Preferred Length", "Dirt Rating", "Mud Rating", "Grass Rating", "Odds");
+
+        for (int i = 0; i < 100; i++){
+            System.out.print("-");
+        }
+        System.out.println();
+        for (Horse horse : horses) {
+            System.out.printf("%-20s| %-20s| %-15s| %-15s |%-15s| %-15s\n",
+                horse.getName(), 
+                horse.getPreferredLength(), 
+                horse.getDirtRating(),
+                horse.getMudRating(), 
+                horse.getGrassRating(),
+                "1"
+            );
         }
         BetDialogue betDialogue = new BetDialogue(player);
         betDialogue.CreateBetDialogue(player);
@@ -72,7 +89,7 @@ public class Race {
 
     private int getIncrement(Horse horse){
         int increment = 0;
-        
+
         return increment;
     }
 
