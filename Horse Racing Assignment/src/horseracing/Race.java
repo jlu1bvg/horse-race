@@ -87,9 +87,15 @@ public class Race {
         }
     }
 
-    private int getIncrement(Horse horse){
+    public int getIncrement(Horse horse){
         int increment = 0;
-
+        increment += (int)(7 - Math.abs(horse.getPreferredLength()-this.raceLength));
+        if(raceSurface.equals("grass"))
+            increment += horse.getGrassRating()/2;
+        if(raceSurface.equals("mud"))
+            increment += horse.getMudRating()/2;
+        if(raceSurface.equals("dirt"))
+            increment += horse.getDirtRating()/2;
         return increment;
     }
 
@@ -112,7 +118,7 @@ public class Race {
                 results.add(horse);
                 horse.setRaceFinished(true);
             } else if(!horse.raceFinished()){
-                horse.incrementPosition((int)(Math.random() * 4));
+                horse.incrementPosition((int)(Math.random() * getIncrement(horse)));
             }
 
             displayResults();

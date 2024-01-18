@@ -29,11 +29,14 @@ public class Player {
                 potentialEarnings.put(horseName, amount*3);
                 money -= amount;
                 System.out.println("Bet of " + amount + " on " + horseName + " to come first or second place");
-            }
-            else if (betType.equals("show")){
+            }else if (betType.equals("show")){
                 potentialEarnings.put(horseName, amount*3);
                 money -= amount;
                 System.out.println("Bet of " + amount + " on " + horseName + " to come first, second or third place");
+            }else if (betType.equals("box")){
+                
+            }else if (betType.equals("Exacta")){
+                
             }
         }
     }
