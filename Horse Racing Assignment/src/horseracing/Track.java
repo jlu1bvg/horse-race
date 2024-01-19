@@ -3,7 +3,7 @@ package horseracing;
 public class Track{
 
     public Track(){
-        int lanes=5;
+        int lanes=6;
         for(int i=lanes;i>0;i--){
             for(int j=i*3;j>0;j--){
                 System.out.print(" ");
