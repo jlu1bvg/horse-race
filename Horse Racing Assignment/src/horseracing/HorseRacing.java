@@ -15,12 +15,11 @@ public class HorseRacing {
             int numHorsesInRace = (int)(Math.random()*7)+5;
             
             Race race = HorseRacingHelper.createRace(numHorsesInRace, HorseRacingHelper.SHORT, HorseRacingHelper.DIRT, player);
-            race.displayRaceInfo();
-            race.startRace();
             BettingOdds odds = new BettingOdds(race);
+            race.displayRaceInfo(odds);
+            race.startRace();
             
             System.out.println("Race is Over");
-            odds.displayHorsenames();
             gameOver = playAgain(in);
             
         }

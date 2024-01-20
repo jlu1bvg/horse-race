@@ -48,7 +48,7 @@ public class Race {
         return raceSurface;
     }
 
-    public void displayRaceInfo() { 
+    public void displayRaceInfo(BettingOdds odds) { 
         Track t = new Track();
         System.out.println("Race Information:");
         System.out.println("Race Surface: " + raceSurface);
@@ -71,7 +71,7 @@ public class Race {
                 horse.getDirtRating(),
                 horse.getMudRating(), 
                 horse.getGrassRating(),
-                "1"
+                (int)(odds.getOdds(horse)*2) + ":" + 2
             );
         }
         BetDialogue betDialogue = new BetDialogue(player);
@@ -87,13 +87,13 @@ public class Race {
     }
 
     public int getIncrement(Horse horse){
-        int increment = 0;
+        int increment = 1;
         increment += (int)(7 - Math.abs(horse.getPreferredLength()-this.raceLength));
-        if(raceSurface.equals("grass"))
+        if(raceSurface.equals("Grass"))
             increment += horse.getGrassRating()/2;
-        if(raceSurface.equals("mud"))
+        else if(raceSurface.equals("Mud"))
             increment += horse.getMudRating()/2;
-        if(raceSurface.equals("dirt"))
+        else if(raceSurface.equals("Dirt"))
             increment += horse.getDirtRating()/2;
         return increment;
     }
