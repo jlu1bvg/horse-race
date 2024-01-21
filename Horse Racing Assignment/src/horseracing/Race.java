@@ -157,6 +157,14 @@ public class Race {
     }
     // Other methods for simulating the race, calculating winners, etc., can be added as needed
 
+    public void displayBetResults(){
+        System.out.println("\n\nBet Results");
+        System.out.println("------------");
+        for(int i=0; i<results.size(); i++){
+            player.betWon(results.get(i).getName());
+        }
+    }
+
     private void resetHorses() {
         for (Horse horse : horses) {
             horse.resetCurrenPosition();
