@@ -134,7 +134,7 @@ public class Race {
         HorseRacingHelper.playBackgroundMusic("horse_gallop.wav", true);
 
         while(!done){
-            HorseRacingHelper.pauseForMilliseconds(100);
+            HorseRacingHelper.pauseForMilliseconds(10);
             HorseRacingHelper.clearConsole();
             HorseRacingHelper.updateTrack(numSpaces, horses);
             Horse horse = getNextHorse();
@@ -148,7 +148,7 @@ public class Race {
             }
 
             displayResults();
-
+            displayBetResults();
             if (results.size() == horses.size())
                 done = true;
         }
@@ -157,11 +157,27 @@ public class Race {
     }
     // Other methods for simulating the race, calculating winners, etc., can be added as needed
 
+    /*
+       we only focus on the first 3 places.
+       exacta is built on to a box.
+       box is no order specified.
+    */
+
     public void displayBetResults(){
         System.out.println("\n\nBet Results");
         System.out.println("------------");
         for(int i=0; i<results.size(); i++){
-            player.betWon(results.get(i).getName());
+            if(i==0){
+                String horseName = results.get(0).getName(); 
+                System.out.println(horseName);
+                Integer earnings = player.getEarnings().get(horseName);
+                if (earnings != null) {
+                    System.out.println(player.getName() + " won " + earnings + " on " + horseName);
+                    player.betWon(horseName);
+                } else {
+                    System.out.println("No earnings for " + horseName);
+                }
+            }
         }
     }
 
