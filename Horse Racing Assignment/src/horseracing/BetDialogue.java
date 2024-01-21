@@ -1,14 +1,17 @@
 package horseracing;
 
 import java.util.Scanner;
+import java.util.List;
 
 public class BetDialogue {
     Scanner console;
+    private BettingOdds odds;
     public BetDialogue(Player player) {
         System.out.print("\u001B[?25l");
         console = new Scanner(System.in);
     }
-    public void CreateBetDialogue(Player player){
+    public void CreateBetDialogue(Player player, BettingOdds odd, List<Horse> horses){
+        odds = odd;
         String result = "y"; 
         System.out.println("Remaining money: " + player.getMoney());
         System.out.println("Do u want to place a bet (y/n)");
@@ -35,8 +38,9 @@ public class BetDialogue {
     
                 System.out.println("What type of bet do you want to place? (Win, Place, Show, Boxing, Exacta)");
                 String betType = console.nextLine();
-
-                player.placeBet(betType, amount, horseName);
+                for (Horse horse:horses){
+                    player.placeBet(betType, amount, horseName, odds, horse);
+                }
                 /* 
                 if (betOnPosition.equals("n")) {
                     player.placeBet(amount, horseName);

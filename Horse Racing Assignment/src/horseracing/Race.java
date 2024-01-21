@@ -75,7 +75,7 @@ public class Race {
             );
         }
         BetDialogue betDialogue = new BetDialogue(player);
-        betDialogue.CreateBetDialogue(player);
+        betDialogue.CreateBetDialogue(player, odds, horses);
     }
 
     public void displayResults(){

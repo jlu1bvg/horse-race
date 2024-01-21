@@ -20,6 +20,7 @@ public class HorseRacing {
             race.startRace();
             
             System.out.println("Race is Over");
+            System.out.println(player.getMoney());
             gameOver = playAgain(in);
             
         }
