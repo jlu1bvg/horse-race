@@ -8,26 +8,15 @@
 # Horse movement
 ~~Horses should be moving x studs based on the stats and preferences~~
 
-# Terrain
-Air
-Ocean
-Malevolent Kitchen
-Mountain
-Paradisus Varadero
-Oil Spill
-
-# Horse
-Renaming
-
 # Bet
-~~New bet methods:
+~~New bet methods~~:
     ~~Picking the top 2/3 (hard)~~
 ~~Moving bet system to a seperate class for organization~~
 
 ~~Fix mem leak~~
 
 # Battle system???
-See if you're better than other players at betting with a built in player system??
+~~See if you're better than other players at betting with a built in player system??~~
 
 # Different tracks
 Circular track
