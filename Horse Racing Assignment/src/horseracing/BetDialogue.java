@@ -9,6 +9,8 @@ public class BetDialogue {
         console = new Scanner(System.in);
     }
     public void CreateBetDialogue(Player player){
+        System.out.println();
+        System.out.println(player.getName()+" is betting");
         String result = "y"; 
         System.out.println("Remaining money: " + player.getMoney());
         System.out.println("Do u want to place a bet (y/n)");

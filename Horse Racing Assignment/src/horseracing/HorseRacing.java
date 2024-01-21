@@ -8,16 +8,79 @@ public class HorseRacing {
         Scanner in = new Scanner(System.in);    
         HorseRacingHelper.prepareHorseRacingSimulation();
         boolean gameOver = false;
-        Player player = new Player();
+        System.out.print("Players: ");
+        boolean validPlayerCount=false;
+        int playerCount=1;
+        while(!validPlayerCount){
+            try{
+                playerCount=Integer.parseInt(in.nextLine());
+                if(playerCount<=0){
+                    System.out.println("Number too low");
+                }
+                else if(playerCount>3){
+                    System.out.println("Number too high");
+                }
+                else{
+                    validPlayerCount=true;
+                }
+            }
+            catch(NumberFormatException e){
+                System.out.println("Invalid number");
+            }
+        }
         while(!gameOver){
             HorseRacingHelper.clearConsole();
 
             int numHorsesInRace = (int)(Math.random()*7)+5;
             
-            Race race = HorseRacingHelper.createRace(numHorsesInRace, HorseRacingHelper.SHORT, HorseRacingHelper.DIRT, player);
-            BettingOdds odds = new BettingOdds(race);
-            race.displayRaceInfo(odds);
-            race.startRace();
+            if(playerCount==1){
+                Player player=new Player();
+                System.out.print("Player1 name: ");
+                player.setName(in.nextLine());
+                System.out.println();
+
+                Race race = HorseRacingHelper.createRace(numHorsesInRace, HorseRacingHelper.SHORT, HorseRacingHelper.DIRT, player);
+                BettingOdds odds = new BettingOdds(race);
+                race.displayRaceInfo(odds);
+                race.startRace();
+            }
+            if(playerCount==2){
+                Player player=new Player();
+                System.out.print("Player1 name: ");
+                player.setName(in.nextLine());
+                System.out.println();
+                
+                Player player2=new Player();
+                System.out.print("Player2 name: ");
+                player2.setName(in.nextLine());
+                System.out.println();
+
+                Race race=HorseRacingHelper.createRace(numHorsesInRace, HorseRacingHelper.SHORT, HorseRacingHelper.DIRT, player,player2);
+                BettingOdds odds=new BettingOdds(race);
+                race.displayRaceInfo(odds);
+                race.startRace();
+            }
+            if(playerCount==3){
+                Player player=new Player();
+                System.out.print("Player1 name: ");
+                player.setName(in.nextLine());
+                System.out.println();
+
+                Player player2=new Player();
+                System.out.print("Player2 name: ");
+                player2.setName(in.nextLine());
+                System.out.println();
+
+                Player player3=new Player();
+                System.out.print("Player3 name: ");
+                player3.setName(in.nextLine());
+                System.out.println();
+
+                Race race=HorseRacingHelper.createRace(numHorsesInRace, HorseRacingHelper.SHORT, HorseRacingHelper.DIRT, player,player2,player3);
+                BettingOdds odds=new BettingOdds(race);
+                race.displayRaceInfo(odds);
+                race.startRace();
+            }
             
             System.out.println("Race is Over");
             gameOver = playAgain(in);
