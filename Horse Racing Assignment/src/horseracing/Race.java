@@ -9,7 +9,10 @@ public class Race {
     private String raceSurface; // "grass", "dirt", or "mud" (Uses HorseRacingHelper constants)
     private int currentHorse;
     private Player player;
+    private Player player2;
+    private Player player3;
     private List<Horse> results;
+    private int playerCount;
 
 
     public Race(List<Horse> horses, double raceLength, String raceSurface, Player player) {
@@ -19,6 +22,30 @@ public class Race {
         this.currentHorse = 0;
         this.results = new ArrayList<Horse>();
         this.player = player;
+        playerCount=1;
+    }
+
+    public Race(List<Horse> horses, double raceLength, String raceSurface, Player player,Player player2) {
+        this.horses = horses;
+        this.raceLength = raceLength;
+        this.raceSurface = raceSurface;
+        this.currentHorse = 0;
+        this.results = new ArrayList<Horse>();
+        this.player = player;
+        this.player2=player2;
+        playerCount=2;
+    }
+
+    public Race(List<Horse> horses, double raceLength, String raceSurface, Player player,Player player2,Player player3) {
+        this.horses = horses;
+        this.raceLength = raceLength;
+        this.raceSurface = raceSurface;
+        this.currentHorse = 0;
+        this.results = new ArrayList<Horse>();
+        this.player = player;
+        this.player2=player2;
+        this.player3=player3;
+        playerCount=3;
     }
 
     public List<Horse> getHorses() {

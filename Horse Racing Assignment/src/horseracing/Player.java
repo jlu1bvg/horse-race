@@ -6,6 +6,7 @@ import java.util.HashMap;
 public class Player {
     private int money = 100;
     private Map<String, Integer>potentialEarnings;
+    private String name;
 
     public Player(){
         this.potentialEarnings = new HashMap<String,Integer>();
@@ -39,5 +40,13 @@ public class Player {
                 
             }
         }
+    }
+
+    public void setName(String name){
+        this.name=name;
+    }
+
+    public String getName(){
+        return name;
     }
 }

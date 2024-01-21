@@ -12,6 +12,8 @@ public class BetDialogue {
     }
     public void CreateBetDialogue(Player player, BettingOdds odd, List<Horse> horses){
         odds = odd;
+        System.out.println();
+        System.out.println(player.getName()+" is betting");
         String result = "y"; 
         System.out.println("Remaining money: " + player.getMoney());
         System.out.println("Do u want to place a bet (y/n)");
