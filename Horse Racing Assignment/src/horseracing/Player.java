@@ -4,13 +4,12 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class Player {
-    private int money;
+    private int money = 100;
     private Map<String, Integer>potentialEarnings;
     private String name;
 
     public Player(){
         this.potentialEarnings = new HashMap<String,Integer>();
-        this.money = 100;
     }
 
     public int getMoney(){
@@ -18,7 +17,11 @@ public class Player {
     }
 
     public void betWon(String horseName){
-        
+        money += potentialEarnings.get(horseName);
+    }
+
+    public Map<String, Integer> getEarnings(){
+        return potentialEarnings;
     }
 
     public void placeBet(String betType, int amount, String horseName, BettingOdds odds, Horse horse){
