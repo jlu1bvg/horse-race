@@ -102,15 +102,7 @@ public class Race {
             );
         }
         BetDialogue betDialogue = new BetDialogue(player);
-        betDialogue.CreateBetDialogue(player);
-        if(playerCount>=2){
-            BetDialogue betDialogue2=new BetDialogue(player2);
-            betDialogue2.CreateBetDialogue(player2);
-        }
-        if(playerCount==3){
-            BetDialogue betDialogue3=new BetDialogue(player3);
-            betDialogue3.CreateBetDialogue(player3);
-        }
+        betDialogue.CreateBetDialogue(player, odds, horses);
     }
 
     public void displayResults(){
