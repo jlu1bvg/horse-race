@@ -4,12 +4,13 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class Player {
-    private int money = 100;
+    private int money;
     private Map<String, Integer>potentialEarnings;
     private String name;
 
     public Player(){
         this.potentialEarnings = new HashMap<String,Integer>();
+        this.money = 100;
     }
 
     public int getMoney(){
