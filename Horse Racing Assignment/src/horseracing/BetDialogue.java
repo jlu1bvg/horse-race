@@ -35,14 +35,9 @@ public class BetDialogue {
                     }
                 }
     
-                System.out.println("Which horse do u choose? (say name)");
-                String horseName = console.nextLine();
-    
-                System.out.println("What type of bet do you want to place? (Win, Place, Show, Boxing, Exacta)");
+                System.out.println("What type of bet do you want to place? (win, place, show, box, exacta)");
                 String betType = console.nextLine();
-                for (Horse horse:horses){
-                    player.placeBet(betType, amount, horseName, odds, horse);
-                }
+                player.placeBet(betType, amount, odds, horses);
                 /* 
                 if (betOnPosition.equals("n")) {
                     player.placeBet(amount, horseName);
