@@ -44,7 +44,7 @@ public class Player {
                         }
                     }
                 }
-                potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse)));
+                potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse, "win")));
                 money -= amount;
                 System.out.println("Bet of " + amount + " placed on " + horse.getName() + " to come first place");
             }else if (betType.toLowerCase().equals("place")){
@@ -62,7 +62,7 @@ public class Player {
                         }
                     }
                 }
-                potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse)));
+                potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse, "place")));
                 money -= amount;
                 System.out.println("Bet of " + amount + " placed on " + horse.getName() + " to come first or second place");
             }else if (betType.toLowerCase().equals("show")){
@@ -80,7 +80,7 @@ public class Player {
                         }
                     }
                 }
-                potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse)));
+                potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse, "show")));
                 money -= amount;
                 System.out.println("Bet of " + amount + " placed on " + horse.getName() + " to come first, second or third place");
             }else if (betType.toLowerCase().equals("box")){
@@ -109,7 +109,7 @@ public class Player {
                     }
                 }
                 if (horse1 != null && horse2 != null) {
-                    double combinedOdds = (odds.getOdds(horse1) + odds.getOdds(horse2)) / 2; 
+                    double combinedOdds = (odds.getOdds(horse1, "win") + odds.getOdds(horse2, "win")) / 2; 
                     potentialEarnings.put(horse1.getName() + " & " + horse2.getName(), (int)(amount * combinedOdds));
                     money -= amount;
                     System.out.println("Box bet of " + amount + " placed on " + horse1.getName() + " & " + horse2.getName());
@@ -144,7 +144,7 @@ public class Player {
                 }
 
                 if (horse1 != null && horse2 != null) {
-                    double exactaOdds = odds.getOdds(horse1) * odds.getOdds(horse2);
+                    double exactaOdds = odds.getOdds(horse1, "win") * odds.getOdds(horse2, "win");
                     potentialEarnings.put(horse1.getName() + " -> " + horse2.getName(), (int)(amount * exactaOdds));
                     money -= amount;
                     System.out.println("Exacta bet of " + amount + " placed on " + horse1.getName() + " -> " + horse2.getName());

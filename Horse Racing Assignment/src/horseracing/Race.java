@@ -85,21 +85,26 @@ public class Race {
             System.out.println("- " + horse.getName());
         }
         */
-        System.out.printf("%-34s| %-20s| %-15s| %-15s| %-15s| %-15s\n", "Horse Name", "Preferred Length", "Dirt Rating", "Mud Rating", "Grass Rating", "Odds");
+        System.out.printf("%-34s| %-20s| %-15s| %-15s| %-15s| %-10s| %-11s| %-10s\n", "Horse Name", "Preferred Length", "Dirt Rating", "Mud Rating", "Grass Rating", "Win Odds", "Place Odds", "Show Odds");
 
-        for (int i = 0; i < 115; i++){
+        for (int i = 0; i < 145; i++){
             System.out.print("-");
         }
         System.out.println();
         for (Horse horse : horses) {
-            System.out.printf("%-3s %-30s| %-20s| %-15s| %-15s| %-15s| %-15s\n",
+            int temp = (int)(odds.getOdds(horse, "win")*2);
+            int temp2 = (int)(odds.getOdds(horse, "place")*2);
+            int temp3 = (int)(odds.getOdds(horse, "show")*2);
+            System.out.printf("%-3s %-30s| %-20s| %-15s| %-15s| %-15s| %-10s| %-11s| %-10s\n",
                 horse.getNumber()+":",
                 horse.getName(), 
                 horse.getPreferredLength(), 
                 horse.getDirtRating(),
                 horse.getMudRating(), 
                 horse.getGrassRating(),
-                (int)(odds.getOdds(horse)*2) + ":" + 2
+                temp % 2 == 0 ? temp/2 + "-1" : temp + "-2",
+                temp2 % 2 == 0 ? temp2/2 + "-1" : temp2 + "-2",
+                temp3 % 2 == 0 ? temp3/2 + "-1" : temp3 + "-2"
             );
         }
         BetDialogue betDialogue = new BetDialogue(player);
