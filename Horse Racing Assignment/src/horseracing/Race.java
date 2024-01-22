@@ -85,14 +85,15 @@ public class Race {
             System.out.println("- " + horse.getName());
         }
         */
-        System.out.printf("%-30s| %-20s| %-15s| %-15s| %-15s| %-15s\n", "Horse Name", "Preferred Length", "Dirt Rating", "Mud Rating", "Grass Rating", "Odds");
+        System.out.printf("%-34s| %-20s| %-15s| %-15s| %-15s| %-15s\n", "Horse Name", "Preferred Length", "Dirt Rating", "Mud Rating", "Grass Rating", "Odds");
 
-        for (int i = 0; i < 110; i++){
+        for (int i = 0; i < 115; i++){
             System.out.print("-");
         }
         System.out.println();
         for (Horse horse : horses) {
-            System.out.printf("%-30s| %-20s| %-15s| %-15s| %-15s| %-15s\n",
+            System.out.printf("%-3s %-30s| %-20s| %-15s| %-15s| %-15s| %-15s\n",
+                horse.getNumber()+":",
                 horse.getName(), 
                 horse.getPreferredLength(), 
                 horse.getDirtRating(),
