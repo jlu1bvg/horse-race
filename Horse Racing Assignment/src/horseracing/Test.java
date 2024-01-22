@@ -7,6 +7,13 @@ public class Test {
         }
         for (int i = 13; i > 0; i--) {
             System.out.println(i + " " + Math.round(20 * Math.pow(0.86, i)));
-    }
+        }
+        /* 
+        for (Horse h:horses){
+            if(h.getName().equals(horseName)){
+                horse = h;
+            }
+        }
+        */
     }
 }

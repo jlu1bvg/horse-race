@@ -8,7 +8,7 @@ public class HorseRacing {
         Scanner in = new Scanner(System.in);    
         HorseRacingHelper.prepareHorseRacingSimulation();
         boolean gameOver = false;
-        System.out.print("Players: ");
+        System.out.print("Number of Players: ");
         boolean validPlayerCount=false;
         int playerCount=1;
         while(!validPlayerCount){
