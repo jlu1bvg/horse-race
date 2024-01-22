@@ -84,9 +84,73 @@ public class Player {
                 money -= amount;
                 System.out.println("Bet of " + amount + " placed on " + horse.getName() + " to come first, second or third place");
             }else if (betType.toLowerCase().equals("box")){
-                
+                System.out.println("Enter the 2 horses you want to box (say name or number) seperated by a COMMA NO SPACES.");
+                String[] horseNames = console.nextLine().split(",");
+                Horse horse1 = null;
+                Horse horse2 = null;
+                try{
+                    horse1 = horses.get(Integer.parseInt(horseNames[0])-1);
+                }
+                catch(NumberFormatException e){
+                    for (Horse h:horses){
+                        if(h.getName().equals(horseNames[1])){
+                            horse1 = h;
+                        }
+                    }
+                }
+                try{
+                    horse2 = horses.get(Integer.parseInt(horseNames[1])-1);
+                }
+                catch(NumberFormatException e){
+                    for (Horse h:horses){
+                        if(h.getName().equals(horseNames[1])){
+                            horse2 = h;
+                        }
+                    }
+                }
+                if (horse1 != null && horse2 != null) {
+                    double combinedOdds = (odds.getOdds(horse1) + odds.getOdds(horse2)) / 2; 
+                    potentialEarnings.put(horse1.getName() + " & " + horse2.getName(), (int)(amount * combinedOdds));
+                    money -= amount;
+                    System.out.println("Box bet of " + amount + " placed on " + horse1.getName() + " & " + horse2.getName());
+                } else {
+                    System.out.println("not valid input");
+                }
             }else if (betType.toLowerCase().equals("exacta")){
-                
+                System.out.println("Enter the 2 horses you want to exacta box (say name or number) seperated by a COMMA NO SPACES. IN THE ORDER YOU WANT THE EXACTA TO BE.");
+                String[] horseNames = console.nextLine().split(",");
+                Horse horse1 = null;
+                Horse horse2 = null;
+                try{
+                    horse1 = horses.get(Integer.parseInt(horseNames[0])-1);
+                }
+                catch(NumberFormatException e){
+                    for (Horse h:horses){
+                        if(h.getName().equals(horseNames[0])){
+                            horse1 = h;
+                        }
+                    }
+                }
+
+                try{
+                    horse2 = horses.get(Integer.parseInt(horseNames[1])-1);
+                }
+                catch(NumberFormatException e){
+                    for (Horse h:horses){
+                        if(h.getName().equals(horseNames[1])){
+                            horse2 = h;
+                        }
+                    }
+                }
+
+                if (horse1 != null && horse2 != null) {
+                    double exactaOdds = odds.getOdds(horse1) * odds.getOdds(horse2);
+                    potentialEarnings.put(horse1.getName() + " -> " + horse2.getName(), (int)(amount * exactaOdds));
+                    money -= amount;
+                    System.out.println("Exacta bet of " + amount + " placed on " + horse1.getName() + " -> " + horse2.getName());
+                } else {
+                    System.out.println("invalid input");
+                }
             }
         }
     }
