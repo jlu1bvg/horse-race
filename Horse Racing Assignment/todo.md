@@ -20,3 +20,9 @@
 
 # Different tracks
 Circular track
+
+# Player.java
+need thing for when user inputs horse name that doesnt exist
+
+# Race parameters
+need randomization or smth for controlling
