@@ -32,31 +32,25 @@ public class HorseRacing {
         Player player2 = new Player();
         Player player3 = new Player();
         if(playerCount==1){
-            System.out.print("Player1 name: ");
+            System.out.print("\nPlayer1 name: ");
             player.setName(in.nextLine());
-            System.out.println();
         }
         if(playerCount==2){
-            System.out.print("Player1 name: ");
+            System.out.print("\nPlayer1 name: ");
             player.setName(in.nextLine());
-            System.out.println();
             
-            System.out.print("Player2 name: ");
+            System.out.print("\nPlayer2 name: ");
             player2.setName(in.nextLine());
-            System.out.println();
         }
         if(playerCount==3){
-            System.out.print("Player1 name: ");
+            System.out.print("\nPlayer1 name: ");
             player.setName(in.nextLine());
-            System.out.println();
 
-            System.out.print("Player2 name: ");
+            System.out.print("\nPlayer2 name: ");
             player2.setName(in.nextLine());
-            System.out.println();
 
-            System.out.print("Player3 name: ");
+            System.out.print("\nPlayer3 name: ");
             player3.setName(in.nextLine());
-            System.out.println();
         }
 
         while(!gameOver){
