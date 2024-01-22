@@ -54,24 +54,90 @@ public class HorseRacing {
         }
 
         while(!gameOver){
+            boolean validLength=false;
+            int length=0;
+            while(!validLength){
+                System.out.println("Choose race length (leave empty for random): \nSHORT\nMIDDLE\nLONG\n");
+                String input=in.nextLine();
+                if(input.equals("")){
+                    length=(int)(Math.random()*2);
+                    validLength=true;
+                }
+                else if(input.equals("SHORT")){
+                    length=0;
+                    validLength=true;
+                }
+                else if(input.equals("MIDDLE")){
+                    length=1;
+                    validLength=true;
+                }
+                else if(input.equals("LONG")){
+                    length=2;
+                    validLength=true;
+                }
+                else{
+                    System.out.println("Invalid input");
+                    validLength=false;
+                }
+            }
+            
+            boolean validTerrain=false;
+            int terrain=0;
+            while(!validTerrain){
+                System.out.println("Choose race terrain (leave empty for random): \nGRASS\nDIRT\nMUD\nAIR\nPARADISUS\nKITCHEN\n");
+                String input=in.nextLine();
+                if(input.equals("")){
+                    terrain=(int)(Math.random()*5);
+                    validTerrain=true;
+                }
+                else if(input.equals("GRASS")){
+                    terrain=0;
+                    validTerrain=true;
+                }
+                else if(input.equals("DIRT")){
+                    terrain=1;
+                    validTerrain=true;
+                }
+                else if(input.equals("MUD")){
+                    terrain=2;
+                    validTerrain=true;
+                }
+                else if(input.equals("AIR")){
+                    terrain=3;
+                    validTerrain=true;
+                }
+                else if(input.equals("PARADISUS")){
+                    terrain=4;
+                    validTerrain=true;
+                }
+                else if(input.equals("KITCHEN")){
+                    terrain=5;
+                    validTerrain=true;
+                }
+                else{
+                    System.out.println("Invalid input");
+                    validTerrain=false;
+                }
+            }
+
             HorseRacingHelper.clearConsole();
 
             int numHorsesInRace = (int)(Math.random()*7)+5;
             
             if(playerCount==1){
-                Race race = HorseRacingHelper.createRace(numHorsesInRace, HorseRacingHelper.SHORT, HorseRacingHelper.DIRT, player);
+                Race race = HorseRacingHelper.createRace(numHorsesInRace, length, terrain, player);
                 BettingOdds odds = new BettingOdds(race);
                 race.displayRaceInfo(odds);
                 race.startRace();
             }
             if(playerCount==2){
-                Race race=HorseRacingHelper.createRace(numHorsesInRace, HorseRacingHelper.SHORT, HorseRacingHelper.DIRT, player,player2);
+                Race race=HorseRacingHelper.createRace(numHorsesInRace, length, terrain, player,player2);
                 BettingOdds odds=new BettingOdds(race);
                 race.displayRaceInfo(odds);
                 race.startRace();
             }
             if(playerCount==3){
-                Race race=HorseRacingHelper.createRace(numHorsesInRace, HorseRacingHelper.SHORT, HorseRacingHelper.DIRT, player,player2,player3);
+                Race race=HorseRacingHelper.createRace(numHorsesInRace, length, terrain, player,player2,player3);
                 BettingOdds odds=new BettingOdds(race);
                 race.displayRaceInfo(odds);
                 race.startRace();
