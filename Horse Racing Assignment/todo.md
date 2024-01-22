@@ -26,3 +26,9 @@ need thing for when user inputs horse name that doesnt exist
 
 # Race parameters
 need randomization or smth for controlling
+
+# Betting System
+create odds for show and place
+
+# Additional Betting choices
+add options for box and exacta

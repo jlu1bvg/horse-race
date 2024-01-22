@@ -10,7 +10,7 @@ public class BettingOdds {
         double odds = 0;
         for (int i = 14; i > 0; i--) {
             if (raceObj.getIncrement(horse) >= i){
-                odds = (-i + 17)/2.0;
+                odds = Math.round(20 * Math.pow(0.86, i))/2.0;
                 break;
             }
         }
