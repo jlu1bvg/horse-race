@@ -161,7 +161,7 @@ public class Race {
                 results.add(horse);
                 horse.setRaceFinished(true);
             } else if(!horse.raceFinished()){
-                horse.incrementPosition((int)(Math.random() * getIncrement(horse)));
+                horse.incrementPosition((int)(Math.random() * getIncrement(horse))+1);
             }
 
             displayResults();
