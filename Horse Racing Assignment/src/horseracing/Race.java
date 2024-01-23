@@ -139,6 +139,12 @@ public class Race {
             increment += horse.getMudRating()/2;
         else if(raceSurface.equals("Dirt"))
             increment += horse.getDirtRating()/2;
+        else if(raceSurface.equals("Air"))
+            increment += horse.getAirRating()/2;
+        else if(raceSurface.equals("Dirt"))
+            increment += horse.getParadisusRating()/2;
+        else if(raceSurface.equals("Kitchen"))
+            increment += horse.getKitchenRating()/2;
         return increment;
     }
 
@@ -182,7 +188,9 @@ public class Race {
     public void displayBetResults(){
         System.out.println("\n\nBet Results");
         System.out.println("------------");
+        System.out.print("Type of bet: ");
         System.out.println(player.getBetType());
+        System.out.print("Bet Log (Potential Earnings): ");
         System.out.println(player.getEarnings());
         if(player.getEarnings() == null){
             System.out.println("no bet placed, therefore no reward.");
