@@ -34,10 +34,19 @@ public class BetDialogue {
                         System.out.println("Enter an integer please: ");
                     }
                 }
-    
-                System.out.println("What type of bet do you want to place? (win, place, show, box, exacta)");
-                String betType = console.nextLine();
-                player.placeBet(betType, amount, odds, horses);
+                boolean validBetTypeEntered=false;
+                while(!validBetTypeEntered){
+                    System.out.println("What type of bet do you want to place? (win, place, show, box, exacta)");
+                    String betType = console.nextLine();
+                    if(!(betType.equals("win")||betType.equals("place")||betType.equals("show")||betType.equals("box")||betType.equals("exacta"))){
+                        System.out.println("Invalid bet type");
+                        validBetTypeEntered=false;
+                    }
+                    else{
+                        validBetTypeEntered=true;
+                        player.placeBet(betType, amount, odds, horses);
+                    }
+                }                
                 /* 
                 if (betOnPosition.equals("n")) {
                     player.placeBet(amount, horseName);

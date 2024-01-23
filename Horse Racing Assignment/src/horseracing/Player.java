@@ -33,12 +33,20 @@ public class Player {
             if (betType.toLowerCase().equals("win")){
                 boolean vaildHorseEntered = false;
                 Horse horse=null;
+                int horseNum=0;
                 while(!vaildHorseEntered){
                     System.out.println("Which horse do u choose? (enter name or number)");
                     String horseName=console.nextLine();
                     try{
-                        horse=horses.get(Integer.parseInt(horseName)-1);
-                        vaildHorseEntered = true;
+                        horseNum=Integer.parseInt(horseName)-1;
+                        if(horseNum+1>horses.size()||horseNum<0){
+                            System.out.println("Horse not found");
+                            vaildHorseEntered=false;
+                        }
+                        else{
+                            horse=horses.get(horseNum);
+                            vaildHorseEntered = true;
+                        }
                     }
                     catch(NumberFormatException e){
                         for (Horse h:horses){
@@ -58,12 +66,20 @@ public class Player {
             }else if (betType.toLowerCase().equals("place")){
                 boolean vaildHorseEntered = false;
                 Horse horse=null;
+                int horseNum=0;
                 while(!vaildHorseEntered){
                     System.out.println("Which horse do u choose? (enter name or number)");
                     String horseName=console.nextLine();
                     try{
-                        horse=horses.get(Integer.parseInt(horseName)-1);
-                        vaildHorseEntered = true;
+                        horseNum=Integer.parseInt(horseName)-1;
+                        if(horseNum+1>horses.size()||horseNum<0){
+                            System.out.println("Horse not found");
+                            vaildHorseEntered=false;
+                        }
+                        else{
+                            horse=horses.get(horseNum);
+                            vaildHorseEntered = true;
+                        }
                     }
                     catch(NumberFormatException e){
                         for (Horse h:horses){
@@ -83,12 +99,20 @@ public class Player {
             }else if (betType.toLowerCase().equals("show")){
                 boolean vaildHorseEntered = false;
                 Horse horse=null;
+                int horseNum=0;
                 while(!vaildHorseEntered){
                     System.out.println("Which horse do u choose? (enter name or number)");
                     String horseName=console.nextLine();
                     try{
-                        horse=horses.get(Integer.parseInt(horseName)-1);
-                        vaildHorseEntered = true;
+                        horseNum=Integer.parseInt(horseName)-1;
+                        if(horseNum+1>horses.size()||horseNum<0){
+                            System.out.println("Horse not found");
+                            vaildHorseEntered=false;
+                        }
+                        else{
+                            horse=horses.get(horseNum);
+                            vaildHorseEntered = true;
+                        }
                     }
                     catch(NumberFormatException e){
                         for (Horse h:horses){
@@ -106,30 +130,55 @@ public class Player {
                 betT = "show";
                 System.out.println("Bet of " + amount + " placed on " + horse.getName() + " to come first, second or third place");
             }else if (betType.toLowerCase().equals("box")){
-                System.out.println("Enter the 2 horses you want to box (say name or number) seperated by a COMMA NO SPACES.");
-                String[] horseNames = console.nextLine().split(",");
+                boolean vaildHorseEntered=false;
                 Horse horse1 = null;
                 Horse horse2 = null;
-                try{
-                    horse1 = horses.get(Integer.parseInt(horseNames[0])-1);
-                }
-                catch(NumberFormatException e){
-                    for (Horse h:horses){
-                        if(h.getName().equals(horseNames[1])){
-                            horse1 = h;
+                int horseNum=0;
+                while(!vaildHorseEntered){
+                    System.out.println("Enter the 2 horses you want to box (say name or number) seperated by a COMMA NO SPACES.");
+                    String[] horseNames = console.nextLine().split(",");
+                    try{
+                        horseNum=Integer.parseInt(horseNames[0])-1;
+                        if(horseNum+1>horses.size()||horseNum<0){
+                            System.out.println("Horse "+horseNames[0]+" not found");
+                            vaildHorseEntered=false;
+                        }
+                        else{
+                            horse1 = horses.get(Integer.parseInt(horseNames[0])-1);
+                            vaildHorseEntered = true;
                         }
                     }
-                }
-                try{
-                    horse2 = horses.get(Integer.parseInt(horseNames[1])-1);
-                }
-                catch(NumberFormatException e){
-                    for (Horse h:horses){
-                        if(h.getName().equals(horseNames[1])){
-                            horse2 = h;
+                    catch(NumberFormatException e){
+                        for (Horse h:horses){
+                            if(h.getName().equals(horseNames[1])){
+                                horse1 = h;
+                                vaildHorseEntered=true;
+                            }
+                        }
+                        if(!vaildHorseEntered)
+                            System.out.println("Horse "+horseNames[0]+" not found. Please try again: ");
+                    }
+                    try{
+                        horseNum=Integer.parseInt(horseNames[1])-1;
+                        if(horseNum+1>horses.size()||horseNum<0){
+                            System.out.println("Horse "+horseNames[1]+" not found");
+                            vaildHorseEntered=false;
+                        }
+                        else{
+                            horse2 = horses.get(Integer.parseInt(horseNames[1])-1);
+                            vaildHorseEntered=true;
                         }
                     }
-                }
+                    catch(NumberFormatException e){
+                        for (Horse h:horses){
+                            if(h.getName().equals(horseNames[1])){
+                                horse2 = h;
+                                vaildHorseEntered=true;
+                            }
+                        }
+                        if(!vaildHorseEntered)
+                            System.out.println("Horse "+horseNames[1]+" not found. Please try again: ");
+                    }
                 if (horse1 != null && horse2 != null) {
                     double combinedOdds = (odds.getOdds(horse1, "win") + odds.getOdds(horse2, "win")); 
                     potentialEarnings.put(horse1.getName() + " & " + horse2.getName(), (int)(amount * combinedOdds));
@@ -139,32 +188,58 @@ public class Player {
                 } else {
                     System.out.println("not valid input");
                 }
+            }
             }else if (betType.toLowerCase().equals("exacta")){
-                System.out.println("Enter the 2 horses you want to exacta box (say name or number) seperated by a COMMA NO SPACES. IN THE ORDER YOU WANT THE EXACTA TO BE.");
-                String[] horseNames = console.nextLine().split(",");
+                boolean vaildHorseEntered=false;
                 Horse horse1 = null;
                 Horse horse2 = null;
-                try{
-                    horse1 = horses.get(Integer.parseInt(horseNames[0])-1);
-                }
-                catch(NumberFormatException e){
-                    for (Horse h:horses){
-                        if(h.getName().equals(horseNames[0])){
-                            horse1 = h;
+                int horseNum=0;
+                while(!vaildHorseEntered){
+                    System.out.println("Enter the 2 horses you want to exacta box (say name or number) seperated by a COMMA NO SPACES. IN THE ORDER YOU WANT THE EXACTA TO BE.");
+                    String[] horseNames = console.nextLine().split(",");    
+                    try{
+                        horseNum=Integer.parseInt(horseNames[0])-1;
+                        if(horseNum+1>horses.size()||horseNum<0){
+                            System.out.println("Horse "+horseNames[0]+" not found");
+                            vaildHorseEntered=false;
                         }
-                    }
-                }
-
-                try{
-                    horse2 = horses.get(Integer.parseInt(horseNames[1])-1);
-                }
-                catch(NumberFormatException e){
-                    for (Horse h:horses){
-                        if(h.getName().equals(horseNames[1])){
-                            horse2 = h;
+                        else{
+                            horse1 = horses.get(Integer.parseInt(horseNames[0])-1);
+                            vaildHorseEntered=true;
                         }
+                        
                     }
-                }
+                    catch(NumberFormatException e){
+                        for (Horse h:horses){
+                            if(h.getName().equals(horseNames[0])){
+                                horse1 = h;
+                                vaildHorseEntered=true;
+                            }
+                        }
+                        if(!vaildHorseEntered)
+                            System.out.println("Horse not found. Please try again: ");
+                    }    
+                    try{
+                        horseNum=Integer.parseInt(horseNames[1])-1;
+                        if(horseNum+1>horses.size()||horseNum<0){
+                            System.out.println("Horse "+horseNames[1]+" not found");
+                            vaildHorseEntered=false;
+                        }
+                        else{
+                            horse2 = horses.get(Integer.parseInt(horseNames[1])-1);
+                            vaildHorseEntered=true;
+                        }
+                        
+                    }
+                    catch(NumberFormatException e){
+                        for (Horse h:horses){
+                            if(h.getName().equals(horseNames[1])){
+                                horse2 = h;
+                            }
+                        }
+                        if(!vaildHorseEntered)
+                            System.out.println("Horse not found. Please try again: ");
+                    }
 
                 if (horse1 != null && horse2 != null) {
                     double exactaOdds = odds.getOdds(horse1, "win") * odds.getOdds(horse2, "win");
@@ -174,6 +249,7 @@ public class Player {
                     System.out.println("Exacta bet of " + amount + " placed on " + horse1.getName() + " -> " + horse2.getName());
                 } else {
                     System.out.println("invalid input");
+                }
                 }
             }
         }
