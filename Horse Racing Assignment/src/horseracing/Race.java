@@ -143,6 +143,7 @@ public class Race {
     }
 
     public void startRace(){
+        System.out.println("Race is starting");
         resetHorses();
         int numSpaces = (int)(raceLength*10);
         boolean done = false;
