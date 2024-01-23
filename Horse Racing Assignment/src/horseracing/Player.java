@@ -31,59 +31,77 @@ public class Player {
     public void placeBet(String betType, int amount, BettingOdds odds, List<Horse> horses){
         if(money >= amount){
             if (betType.toLowerCase().equals("win")){
-                System.out.println("Which horse do u choose? (enter name or number)");
-                String horseName=console.nextLine();
+                boolean vaildHorseEntered = false;
                 Horse horse=null;
-                try{
-                    horse=horses.get(Integer.parseInt(horseName)-1);
-                }
-                catch(NumberFormatException e){
-                    //jeff did this
-                    for (Horse h:horses){
-                        if(h.getName().equals(horseName)){
-                            horse = h;
+                while(!vaildHorseEntered){
+                    System.out.println("Which horse do u choose? (enter name or number)");
+                    String horseName=console.nextLine();
+                    try{
+                        horse=horses.get(Integer.parseInt(horseName)-1);
+                        vaildHorseEntered = true;
+                    }
+                    catch(NumberFormatException e){
+                        for (Horse h:horses){
+                            if(h.getName().equals(horseName)){
+                                horse = h;
+                                vaildHorseEntered = true;
+                            }
                         }
+                        if(!vaildHorseEntered)
+                            System.out.println("Horse not found. Please try again: ");
                     }
                 }
-                potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse)));
+                potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse, "win")));
                 money -= amount;
                 betT = "win";
                 System.out.println("Bet of " + amount + " placed on " + horse.getName() + " to come first place");
             }else if (betType.toLowerCase().equals("place")){
-                System.out.println("Which horse do u choose? (say name)");
-                String horseName = console.nextLine();
+                boolean vaildHorseEntered = false;
                 Horse horse=null;
-                try{
-                    horse=horses.get(Integer.parseInt(horseName)-1);
-                }
-                catch(NumberFormatException e){
-                    //jeff did this
-                    for (Horse h:horses){
-                        if(h.getName().equals(horseName)){
-                            horse = h;
+                while(!vaildHorseEntered){
+                    System.out.println("Which horse do u choose? (enter name or number)");
+                    String horseName=console.nextLine();
+                    try{
+                        horse=horses.get(Integer.parseInt(horseName)-1);
+                        vaildHorseEntered = true;
+                    }
+                    catch(NumberFormatException e){
+                        for (Horse h:horses){
+                            if(h.getName().equals(horseName)){
+                                horse = h;
+                                vaildHorseEntered = true;
+                            }
                         }
+                        if(!vaildHorseEntered)
+                            System.out.println("Horse not found. Please try again: ");
                     }
                 }
-                potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse)));
+                potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse, "place")));
                 money -= amount;
                 betT = "place";
                 System.out.println("Bet of " + amount + " placed on " + horse.getName() + " to come first or second place");
             }else if (betType.toLowerCase().equals("show")){
-                System.out.println("Which horse do u choose? (say name)");
-                String horseName = console.nextLine();
+                boolean vaildHorseEntered = false;
                 Horse horse=null;
-                try{
-                    horse=horses.get(Integer.parseInt(horseName)-1);
-                }
-                catch(NumberFormatException e){
-                    //jeff did this
-                    for (Horse h:horses){
-                        if(h.getName().equals(horseName)){
-                            horse = h;
+                while(!vaildHorseEntered){
+                    System.out.println("Which horse do u choose? (enter name or number)");
+                    String horseName=console.nextLine();
+                    try{
+                        horse=horses.get(Integer.parseInt(horseName)-1);
+                        vaildHorseEntered = true;
+                    }
+                    catch(NumberFormatException e){
+                        for (Horse h:horses){
+                            if(h.getName().equals(horseName)){
+                                horse = h;
+                                vaildHorseEntered = true;
+                            }
                         }
+                        if(!vaildHorseEntered)
+                            System.out.println("Horse not found. Please try again: ");
                     }
                 }
-                potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse)));
+                potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse, "show")));
                 money -= amount;
                 betT = "show";
                 System.out.println("Bet of " + amount + " placed on " + horse.getName() + " to come first, second or third place");
@@ -113,7 +131,7 @@ public class Player {
                     }
                 }
                 if (horse1 != null && horse2 != null) {
-                    double combinedOdds = (odds.getOdds(horse1) + odds.getOdds(horse2)) / 2; 
+                    double combinedOdds = (odds.getOdds(horse1, "win") + odds.getOdds(horse2, "win")) / 2; 
                     potentialEarnings.put(horse1.getName() + " & " + horse2.getName(), (int)(amount * combinedOdds));
                     money -= amount;
                     betT = "box";
@@ -149,7 +167,7 @@ public class Player {
                 }
 
                 if (horse1 != null && horse2 != null) {
-                    double exactaOdds = odds.getOdds(horse1) * odds.getOdds(horse2);
+                    double exactaOdds = odds.getOdds(horse1, "win") * odds.getOdds(horse2, "win");
                     potentialEarnings.put(horse1.getName() + " -> " + horse2.getName(), (int)(amount * exactaOdds));
                     money -= amount;
                     betT = "exacta";

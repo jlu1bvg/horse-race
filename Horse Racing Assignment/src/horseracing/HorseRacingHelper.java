@@ -24,6 +24,9 @@ public class HorseRacingHelper {
     public static final int GRASS = 0;
     public static final int DIRT = 1;
     public static final int MUD = 2;
+    public static final int AIR=3;
+    public static final int PARADISUS=4;
+    public static final int KITCHEN=5;
 
     private static final double[] SHORT_RACES = {5, 5.5, 6};
     private static final double[] MIDDLE_RACES = {7, 8};
@@ -103,8 +106,14 @@ public class HorseRacingHelper {
             terrain = "Grass";
         else if (raceTerrain == DIRT)
             terrain = "Dirt";
-        else
+        else if(raceTerrain==MUD)
             terrain = "Mud";
+        else if(raceTerrain==AIR)
+            terrain="Air";
+        else if(raceTerrain==PARADISUS)
+            terrain="Paradisus Varadero";
+        else
+            terrain="Mr. Deslauriers Kitchen";
 
         double raceLength = raceLengths[(int)(Math.random()*raceLengths.length)];
             
@@ -133,8 +142,14 @@ public class HorseRacingHelper {
             terrain = "Grass";
         else if (raceTerrain == DIRT)
             terrain = "Dirt";
-        else
+        else if(raceTerrain==MUD)
             terrain = "Mud";
+        else if(raceTerrain==AIR)
+            terrain="Air";
+        else if(raceTerrain==PARADISUS)
+            terrain="Paradisus Varadero";
+        else
+            terrain="Mr. Deslauriers Kitchen";
 
         double raceLength = raceLengths[(int)(Math.random()*raceLengths.length)];
             
@@ -163,8 +178,14 @@ public class HorseRacingHelper {
             terrain = "Grass";
         else if (raceTerrain == DIRT)
             terrain = "Dirt";
-        else
+        else if(raceTerrain==MUD)
             terrain = "Mud";
+        else if(raceTerrain==AIR)
+            terrain="Air";
+        else if(raceTerrain==PARADISUS)
+            terrain="Paradisus Varadero";
+        else
+            terrain="Mr. Deslauriers Kitchen";
 
         double raceLength = raceLengths[(int)(Math.random()*raceLengths.length)];
             
