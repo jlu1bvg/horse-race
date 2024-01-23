@@ -25,7 +25,7 @@ public class BetDialogue {
                     try {
                         System.out.println("How much do u bet");
                         amount = Integer.parseInt(console.nextLine());
-                        if (amount <= player.getMoney()){
+                        if (amount <= player.getMoney()&&amount>0){
                             validBetEntered = true;
                         }else{
                             System.out.println("You're too poor to place this bet. Please try again: ");
