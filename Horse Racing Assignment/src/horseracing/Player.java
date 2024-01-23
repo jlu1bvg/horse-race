@@ -10,6 +10,7 @@ public class Player {
     private int money = 100;
     private Map<String, Integer>potentialEarnings;
     private String name;
+    private String betT = "";
 
     public Player(){
         this.potentialEarnings = new HashMap<String,Integer>();
@@ -46,6 +47,7 @@ public class Player {
                 }
                 potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse)));
                 money -= amount;
+                betT = "win";
                 System.out.println("Bet of " + amount + " placed on " + horse.getName() + " to come first place");
             }else if (betType.toLowerCase().equals("place")){
                 System.out.println("Which horse do u choose? (say name)");
@@ -64,6 +66,7 @@ public class Player {
                 }
                 potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse)));
                 money -= amount;
+                betT = "place";
                 System.out.println("Bet of " + amount + " placed on " + horse.getName() + " to come first or second place");
             }else if (betType.toLowerCase().equals("show")){
                 System.out.println("Which horse do u choose? (say name)");
@@ -82,6 +85,7 @@ public class Player {
                 }
                 potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse)));
                 money -= amount;
+                betT = "show";
                 System.out.println("Bet of " + amount + " placed on " + horse.getName() + " to come first, second or third place");
             }else if (betType.toLowerCase().equals("box")){
                 System.out.println("Enter the 2 horses you want to box (say name or number) seperated by a COMMA NO SPACES.");
@@ -112,6 +116,7 @@ public class Player {
                     double combinedOdds = (odds.getOdds(horse1) + odds.getOdds(horse2)) / 2; 
                     potentialEarnings.put(horse1.getName() + " & " + horse2.getName(), (int)(amount * combinedOdds));
                     money -= amount;
+                    betT = "box";
                     System.out.println("Box bet of " + amount + " placed on " + horse1.getName() + " & " + horse2.getName());
                 } else {
                     System.out.println("not valid input");
@@ -147,6 +152,7 @@ public class Player {
                     double exactaOdds = odds.getOdds(horse1) * odds.getOdds(horse2);
                     potentialEarnings.put(horse1.getName() + " -> " + horse2.getName(), (int)(amount * exactaOdds));
                     money -= amount;
+                    betT = "exacta";
                     System.out.println("Exacta bet of " + amount + " placed on " + horse1.getName() + " -> " + horse2.getName());
                 } else {
                     System.out.println("invalid input");
@@ -161,5 +167,9 @@ public class Player {
 
     public String getName(){
         return name;
+    }
+
+    public String getBetType(){
+        return betT;
     }
 }
