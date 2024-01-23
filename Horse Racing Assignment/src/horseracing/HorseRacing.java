@@ -57,7 +57,7 @@ public class HorseRacing {
             boolean validLength=false;
             int length=0;
             while(!validLength){
-                System.out.println("Choose race length (leave empty for random): \nSHORT\nMIDDLE\nLONG\n");
+                System.out.print("Choose race length (leave empty for random): \nSHORT\nMIDDLE\nLONG\n");
                 String input=in.nextLine();
                 if(input.equals("")){
                     length=(int)(Math.random()*2);
@@ -84,7 +84,7 @@ public class HorseRacing {
             boolean validTerrain=false;
             int terrain=0;
             while(!validTerrain){
-                System.out.println("Choose race terrain (leave empty for random): \nGRASS\nDIRT\nMUD\nAIR\nPARADISUS\nKITCHEN\n");
+                System.out.print("Choose race terrain (leave empty for random): \nGRASS\nDIRT\nMUD\nAIR\nPARADISUS\nKITCHEN\n");
                 String input=in.nextLine();
                 if(input.equals("")){
                     terrain=(int)(Math.random()*5);
