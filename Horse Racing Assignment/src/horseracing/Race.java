@@ -184,9 +184,32 @@ public class Race {
                     player.betWon(results.get(0).getName());
                 }
             }else if(player.getBetType().equals("place")){
-                
+                if(player.getEarnings().get(results.get(0).getName()) == null && player.getEarnings().get(results.get(1).getName()) == null){
+                    System.out.println("you lost the bet.");
+                }else{
+                    if(player.getEarnings().get(results.get(0).getName()) != null){
+                        System.out.println("You won " + player.getEarnings().get(results.get(0).getName()) + " dollars");
+                        player.betWon(results.get(0).getName());
+                    }else if(player.getEarnings().get(results.get(1).getName()) != null){
+                        System.out.println("You won " + player.getEarnings().get(results.get(1).getName()) + " dollars");
+                        player.betWon(results.get(1).getName());
+                    }
+                }
             }else if(player.getBetType().equals("show")){
-                
+                if(player.getEarnings().get(results.get(0).getName()) == null && player.getEarnings().get(results.get(1).getName()) == null && player.getEarnings().get(results.get(2).getName()) == null){
+                    System.out.println("you lost the bet.");
+                }else{
+                    if(player.getEarnings().get(results.get(0).getName()) != null){
+                        System.out.println("You won " + player.getEarnings().get(results.get(0).getName()) + " dollars");
+                        player.betWon(results.get(0).getName());
+                    }else if(player.getEarnings().get(results.get(1).getName()) != null){
+                        System.out.println("You won " + player.getEarnings().get(results.get(1).getName()) + " dollars");
+                        player.betWon(results.get(1).getName());
+                    }else{
+                        System.out.println("You won " + player.getEarnings().get(results.get(2).getName()) + " dollars");
+                        player.betWon(results.get(2).getName());
+                    }
+                }
             } else if (player.getBetType().equals("box")) {
                 String[] horses = player.getEarnings().keySet().toArray(new String[0])[0].split(" & ");
                 boolean firstHorseWon = results.get(0).getName().equals(horses[0]) || results.get(0).getName().equals(horses[1]);
