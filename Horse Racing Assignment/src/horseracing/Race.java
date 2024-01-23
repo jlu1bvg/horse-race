@@ -76,7 +76,7 @@ public class Race {
         return raceSurface;
     }
 
-    public void displayRaceInfo(BettingOdds odds,int terrain,int players) { 
+    public void displayRaceInfo(BettingOdds odds,int terrain) { 
         System.out.println("Race Information");
         System.out.println("Race Surface: " + raceSurface);
         System.out.println("Race Length: " + raceLength + " furlongs");
@@ -120,11 +120,11 @@ public class Race {
         }
         BetDialogue betDialogue = new BetDialogue(player);
         betDialogue.CreateBetDialogue(player, odds, horses);
-        if(players>=2){
+        if(playerCount>=2){
             BetDialogue betDialogue2 = new BetDialogue(player);
             betDialogue2.CreateBetDialogue(player2, odds, horses);
         }
-        if(players==3){
+        if(playerCount==3){
             BetDialogue betDialogue3 = new BetDialogue(player);
             betDialogue3.CreateBetDialogue(player3, odds, horses);
         }
