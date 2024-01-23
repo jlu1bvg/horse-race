@@ -77,17 +77,17 @@ public class Race {
     }
 
     public void displayRaceInfo(BettingOdds odds) { 
-        System.out.println("Race Information:");
+        System.out.println("Race Information");
         System.out.println("Race Surface: " + raceSurface);
         System.out.println("Race Length: " + raceLength + " furlongs");
-        System.out.println("List of Horses:");
+        System.out.println("List of Horses");
         /*for (Horse horse : horses) {
             System.out.println("- " + horse.getName());
         }
         */
-        System.out.printf("%-29s| %-20s| %-15s| %-15s| %-15s| %-10s| %-11s| %-10s\n", "Horse Name", "Preferred Length", "Dirt Rating", "Mud Rating", "Grass Rating", "Win Odds", "Place Odds", "Show Odds");
+        System.out.printf("%-29s| %-18s| %-15s| %-15s| %-15s| %-10s| %-10s| %-10s\n", "Horse Name", "Preferred Length", "Dirt Rating", "Mud Rating", "Grass Rating", "Win Odds", "Place Odds", "Show Odds");
 
-        for (int i = 0; i < 145; i++){
+        for (int i = 0; i < 135; i++){
             System.out.print("-");
         }
         System.out.println();
@@ -95,7 +95,7 @@ public class Race {
             int temp = (int)(odds.getOdds(horse, "win")*2);
             int temp2 = (int)(odds.getOdds(horse, "place")*2);
             int temp3 = (int)(odds.getOdds(horse, "show")*2);
-            System.out.printf("%-3s %-25s| %-20s| %-15s| %-15s| %-15s| %-10s| %-11s| %-10s\n",
+            System.out.printf("%-3s %-25s| %-18s| %-15s| %-15s| %-15s| %-10s| %-10s| %-10s\n",
                 horse.getNumber()+":",
                 horse.getName(), 
                 horse.getPreferredLength(), 
