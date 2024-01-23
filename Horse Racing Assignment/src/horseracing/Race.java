@@ -140,7 +140,7 @@ public class Race {
         HorseRacingHelper.playBackgroundMusic("horse_gallop.wav", true);
 
         while(!done){
-            HorseRacingHelper.pauseForMilliseconds(10);
+            HorseRacingHelper.pauseForMilliseconds(100);
             HorseRacingHelper.clearConsole();
             HorseRacingHelper.updateTrack(numSpaces, horses);
             Horse horse = getNextHorse();
