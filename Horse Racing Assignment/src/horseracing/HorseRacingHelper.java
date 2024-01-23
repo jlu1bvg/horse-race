@@ -60,14 +60,17 @@ public class HorseRacingHelper {
                 }
 
                 String[] data = line.split(",");
-                if (data.length == 5) {
+                if (data.length == 8) {
                     String name = data[0];
                     int mudRating = Integer.parseInt(data[1]);
                     int grassRating = Integer.parseInt(data[2]);
                     int dirtRating = Integer.parseInt(data[3]);
+                    int airRating=Integer.parseInt(data[5]);
+                    int paradisusRating=Integer.parseInt(data[6]);
+                    int kitchenRating=Integer.parseInt(data[7]);
                     double preferredLength = Double.parseDouble(data[4]);
 
-                    Horse horse = new Horse(name, mudRating, grassRating, dirtRating, preferredLength);
+                    Horse horse = new Horse(name, mudRating, grassRating, dirtRating, airRating,paradisusRating,kitchenRating,preferredLength);
                     allHorses.add(horse);
                 }
             }

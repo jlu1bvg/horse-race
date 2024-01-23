@@ -76,7 +76,7 @@ public class Race {
         return raceSurface;
     }
 
-    public void displayRaceInfo(BettingOdds odds) { 
+    public void displayRaceInfo(BettingOdds odds,int terrain) { 
         System.out.println("Race Information");
         System.out.println("Race Surface: " + raceSurface);
         System.out.println("Race Length: " + raceLength + " furlongs");
@@ -85,9 +85,9 @@ public class Race {
             System.out.println("- " + horse.getName());
         }
         */
-        System.out.printf("%-29s| %-18s| %-15s| %-15s| %-15s| %-10s| %-10s| %-10s\n", "Horse Name", "Preferred Length", "Dirt Rating", "Mud Rating", "Grass Rating", "Win Odds", "Place Odds", "Show Odds");
+        System.out.printf("%-29s| %-18s| %-15s| %-15s| %-15s| %-15s\n", "Horse Name", "Preferred Length", "Terrain Rating", "Win Odds", "Place Odds", "Show Odds");
 
-        for (int i = 0; i < 135; i++){
+        for (int i = 0; i < 115; i++){
             System.out.print("-");
         }
         System.out.println();
@@ -95,13 +95,24 @@ public class Race {
             int temp = (int)(odds.getOdds(horse, "win")*2);
             int temp2 = (int)(odds.getOdds(horse, "place")*2);
             int temp3 = (int)(odds.getOdds(horse, "show")*2);
-            System.out.printf("%-3s %-25s| %-18s| %-15s| %-15s| %-15s| %-10s| %-10s| %-10s\n",
+            int terrainRating=0;
+            if (terrain == HorseRacingHelper.GRASS)
+                terrainRating = horse.getGrassRating();
+            else if (terrain == HorseRacingHelper.DIRT)
+                terrainRating = horse.getDirtRating();
+            else if(terrain==HorseRacingHelper.MUD)
+                terrainRating = horse.getMudRating();
+            else if(terrain==HorseRacingHelper.AIR)
+                terrainRating=horse.getAirRating();
+            else if(terrain==HorseRacingHelper.PARADISUS)
+                terrainRating=horse.getParadisusRating();
+            else
+                terrain=horse.getKitchenRating();
+            System.out.printf("%-3s %-25s| %-18s| %-15s| %-15s| %-15s| %-15s\n",
                 horse.getNumber()+":",
                 horse.getName(), 
                 horse.getPreferredLength(), 
-                horse.getDirtRating(),
-                horse.getMudRating(), 
-                horse.getGrassRating(),
+                terrainRating,
                 temp % 2 == 0 ? temp/2 + "-1" : temp + "-2",
                 temp2 % 2 == 0 ? temp2/2 + "-1" : temp2 + "-2",
                 temp3 % 2 == 0 ? temp3/2 + "-1" : temp3 + "-2"

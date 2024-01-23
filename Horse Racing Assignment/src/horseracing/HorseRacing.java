@@ -128,19 +128,19 @@ public class HorseRacing {
             if(playerCount==1){
                 race = HorseRacingHelper.createRace(numHorsesInRace, length, terrain, player);
                 BettingOdds odds = new BettingOdds(race);
-                race.displayRaceInfo(odds);
+                race.displayRaceInfo(odds,terrain);
                 race.startRace();
             }
             if(playerCount==2){
                 race =HorseRacingHelper.createRace(numHorsesInRace, length, terrain, player,player2);
                 BettingOdds odds=new BettingOdds(race);
-                race.displayRaceInfo(odds);
+                race.displayRaceInfo(odds,terrain);
                 race.startRace();
             }
             if(playerCount==3){
                 race =HorseRacingHelper.createRace(numHorsesInRace, length, terrain, player,player2,player3);
                 BettingOdds odds=new BettingOdds(race);
-                race.displayRaceInfo(odds);
+                race.displayRaceInfo(odds,terrain);
                 race.startRace();
             }
             

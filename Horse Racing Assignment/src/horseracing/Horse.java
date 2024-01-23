@@ -5,17 +5,23 @@ public class Horse{
         private int mudRating;
         private int grassRating;
         private int dirtRating;
+        private int airRating;
+        private int paradisusRating;
+        private int kitchenRating;
         private double preferredLength;
 
         private int currentPosition;
         private boolean finishedRace;
         private int number;
     
-        public Horse(String name, int mudRating, int grassRating, int dirtRating, double preferredLength) {
+        public Horse(String name, int mudRating, int grassRating, int dirtRating,int airRating,int paradisusRating,int kitchenRating, double preferredLength) {
             this.name = name;
             this.mudRating = mudRating;
             this.grassRating = grassRating;
             this.dirtRating = dirtRating;
+            this.airRating=airRating;
+            this.paradisusRating=paradisusRating;
+            this.kitchenRating=kitchenRating;
             this.preferredLength = preferredLength;
             this.currentPosition = 2;
             this.finishedRace = false;
@@ -51,6 +57,18 @@ public class Horse{
 
         public int getDirtRating() {
             return dirtRating;
+        }
+
+        public int getAirRating(){
+            return airRating;
+        }
+
+        public int getParadisusRating(){
+            return paradisusRating;
+        }
+
+        public int getKitchenRating(){
+            return kitchenRating;
         }
         
         public double getPreferredLength() {
