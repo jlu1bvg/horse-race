@@ -116,9 +116,6 @@ public class Race {
         System.out.println("------------");
         for(int i=0; i<results.size(); i++){
             System.out.println((i+1) + ": " + results.get(i).getName() + "("+results.get(i).getNumber()+")");
-            if(i==results.size()-1){
-                //displayBetResults();
-            }
         }
     }
 
