@@ -25,7 +25,7 @@ public class BetDialogue {
                     try {
                         System.out.println("How much do u bet");
                         amount = Integer.parseInt(console.nextLine());
-                        if (amount <= player.getMoney()){
+                        if (amount <= player.getMoney()&&amount>0){
                             validBetEntered = true;
                         }else{
                             System.out.println("You're too poor to place this bet. Please try again: ");
@@ -34,10 +34,19 @@ public class BetDialogue {
                         System.out.println("Enter an integer please: ");
                     }
                 }
-    
-                System.out.println("What type of bet do you want to place? (win, place, show, box, exacta)");
-                String betType = console.nextLine();
-                player.placeBet(betType, amount, odds, horses);
+                boolean validBetTypeEntered=false;
+                while(!validBetTypeEntered){
+                    System.out.println("What type of bet do you want to place? (win, place, show, box, exacta)");
+                    String betType = console.nextLine();
+                    if(!(betType.equals("win")||betType.equals("place")||betType.equals("show")||betType.equals("box")||betType.equals("exacta"))){
+                        System.out.println("Invalid bet type");
+                        validBetTypeEntered=false;
+                    }
+                    else{
+                        validBetTypeEntered=true;
+                        player.placeBet(betType, amount, odds, horses);
+                    }
+                }                
                 /* 
                 if (betOnPosition.equals("n")) {
                     player.placeBet(amount, horseName);

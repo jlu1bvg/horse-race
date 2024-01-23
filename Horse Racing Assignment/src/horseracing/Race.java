@@ -120,6 +120,14 @@ public class Race {
         }
         BetDialogue betDialogue = new BetDialogue(player);
         betDialogue.CreateBetDialogue(player, odds, horses);
+        if(playerCount>=2){
+            BetDialogue betDialogue2 = new BetDialogue(player);
+            betDialogue2.CreateBetDialogue(player2, odds, horses);
+        }
+        if(playerCount==3){
+            BetDialogue betDialogue3 = new BetDialogue(player);
+            betDialogue3.CreateBetDialogue(player3, odds, horses);
+        }
     }
 
     public void displayResults(){
@@ -149,6 +157,7 @@ public class Race {
     }
 
     public void startRace(){
+        System.out.println("Race is starting");
         resetHorses();
         int numSpaces = (int)(raceLength*10);
         boolean done = false;
