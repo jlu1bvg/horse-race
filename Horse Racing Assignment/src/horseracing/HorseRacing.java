@@ -124,26 +124,28 @@ public class HorseRacing {
 
             int numHorsesInRace = (int)(Math.random()*7)+5;
             
+            Race race = null;
             if(playerCount==1){
-                Race race = HorseRacingHelper.createRace(numHorsesInRace, length, terrain, player);
+                race = HorseRacingHelper.createRace(numHorsesInRace, length, terrain, player);
                 BettingOdds odds = new BettingOdds(race);
                 race.displayRaceInfo(odds);
                 race.startRace();
             }
             if(playerCount==2){
-                Race race=HorseRacingHelper.createRace(numHorsesInRace, length, terrain, player,player2);
+                race =HorseRacingHelper.createRace(numHorsesInRace, length, terrain, player,player2);
                 BettingOdds odds=new BettingOdds(race);
                 race.displayRaceInfo(odds);
                 race.startRace();
             }
             if(playerCount==3){
-                Race race=HorseRacingHelper.createRace(numHorsesInRace, length, terrain, player,player2,player3);
+                race =HorseRacingHelper.createRace(numHorsesInRace, length, terrain, player,player2,player3);
                 BettingOdds odds=new BettingOdds(race);
                 race.displayRaceInfo(odds);
                 race.startRace();
             }
             
             System.out.println("Race is Over");
+            race.displayBetResults();
             gameOver = playAgain(in);
             
         }

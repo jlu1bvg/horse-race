@@ -2,6 +2,7 @@ package horseracing;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Race {
     private List<Horse> horses;
@@ -153,7 +154,6 @@ public class Race {
             }
 
             displayResults();
-            displayBetResults();
             if (results.size() == horses.size())
                 done = true;
         }
@@ -171,18 +171,43 @@ public class Race {
     public void displayBetResults(){
         System.out.println("\n\nBet Results");
         System.out.println("------------");
-        for(int i=0; i<results.size(); i++){
-            if(i==0){
-                String horseName = results.get(0).getName(); 
-                System.out.println(horseName);
-                Integer earnings = player.getEarnings().get(horseName);
-                if (earnings != null) {
-                    System.out.println(player.getName() + " won " + earnings + " on " + horseName);
-                    player.betWon(horseName);
+        System.out.println(player.getBetType());
+        System.out.println(player.getEarnings());
+        if(player.getEarnings() == null){
+            System.out.println("no bet placed, therefore no reward.");
+        }else{
+            if(player.getBetType().equals("win")){
+                if(player.getEarnings().get(results.get(0).getName()) == null){
+                    System.out.println("you lost the bet.");
+                }else{
+                    System.out.println("You won " + player.getEarnings().get(results.get(0).getName()) + " dollars");
+                    player.betWon(results.get(0).getName());
+                }
+            }else if(player.getBetType().equals("place")){
+                
+            }else if(player.getBetType().equals("show")){
+                
+            } else if (player.getBetType().equals("box")) {
+                String[] horses = player.getEarnings().keySet().toArray(new String[0])[0].split(" & ");
+                boolean firstHorseWon = results.get(0).getName().equals(horses[0]) || results.get(0).getName().equals(horses[1]);
+                boolean secondHorseWon = results.get(1).getName().equals(horses[0]) || results.get(1).getName().equals(horses[1]);
+            
+                if (firstHorseWon && secondHorseWon) {
+                    player.betWon(horses[0] + " & " + horses[1]);
+                    System.out.println("You won " + player.getEarnings().get(horses[0] + " & " + horses[1]) + " dollars on box bet");
                 } else {
-                    System.out.println("No earnings for " + horseName);
+                    System.out.println("You lost the box bet.");
+                }
+            } else if (player.getBetType().equals("exacta")) {
+                String[] horses = player.getEarnings().keySet().toArray(new String[0])[0].split(" -> ");
+                if (results.get(0).getName().equals(horses[0]) && results.get(1).getName().equals(horses[1])) {
+                    player.betWon(horses[0] + " -> " + horses[1]);
+                    System.out.println("You won " + player.getEarnings().get(horses[0] + " -> " + horses[1]) + " dollars on exacta bet");
+                } else {
+                    System.out.println("You lost the exacta bet.");
                 }
             }
+            
         }
     }
 

@@ -58,17 +58,7 @@ public class BetDialogue {
                     player.placeBet(betType, infos)
                 }
                 */
-                System.out.println("Do you want to continue betting? (y/n)");
-                
-                String temp = console.nextLine();
-
-                if(!temp.equals("y") && !temp.equals("n")){
-                    result = "n";
-                    System.out.println("Invalid again so I ma ban you from the game goodbye");
-                    //crash the client or something 
-                }
-
-                result = temp;
+                result = "n";
             } 
     }
 
