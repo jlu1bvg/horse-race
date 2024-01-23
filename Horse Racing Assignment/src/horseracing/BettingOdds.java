@@ -19,7 +19,7 @@ public class BettingOdds {
         if(betType.equals("place")){
                 for (int i = 14; i > 0; i--) {
                         if (raceObj.getIncrement(horse) >= i){
-                            odds = Math.round(20 * Math.pow(0.86, i)+ 1)/2.0;
+                            odds = Math.round(20 * Math.pow(0.86, i) - 1)/2.0;
                             break;
                         }
                     }
@@ -27,7 +27,7 @@ public class BettingOdds {
         if(betType.equals("show")){
                 for (int i = 14; i > 0; i--) {
                         if (raceObj.getIncrement(horse) >= i){
-                            odds = Math.round(20 * Math.pow(0.86, i) + 2)/2.0;
+                            odds = Math.round(20 * Math.pow(0.86, i) - 2)/2.0;
                             break;
                         }
                     }

@@ -87,7 +87,7 @@ public class Race {
         */
         System.out.printf("%-29s| %-20s| %-15s| %-15s| %-15s| %-10s| %-11s| %-10s\n", "Horse Name", "Preferred Length", "Dirt Rating", "Mud Rating", "Grass Rating", "Win Odds", "Place Odds", "Show Odds");
 
-        for (int i = 0; i < 145; i++){
+        for (int i = 0; i < 140; i++){
             System.out.print("-");
         }
         System.out.println();
