@@ -63,15 +63,15 @@ public class HorseRacing {
                     length=(int)(Math.random()*2);
                     validLength=true;
                 }
-                else if(input.equals("SHORT")){
+                else if(input.toLowerCase().equals("short")){
                     length=0;
                     validLength=true;
                 }
-                else if(input.equals("MIDDLE")){
+                else if(input.toLowerCase().equals("middle")){
                     length=1;
                     validLength=true;
                 }
-                else if(input.equals("LONG")){
+                else if(input.toLowerCase().equals("long")){
                     length=2;
                     validLength=true;
                 }
@@ -90,27 +90,27 @@ public class HorseRacing {
                     terrain=(int)(Math.random()*5);
                     validTerrain=true;
                 }
-                else if(input.equals("GRASS")){
+                else if(input.toLowerCase().equals("grass")){
                     terrain=0;
                     validTerrain=true;
                 }
-                else if(input.equals("DIRT")){
+                else if(input.toLowerCase().equals("dirt")){
                     terrain=1;
                     validTerrain=true;
                 }
-                else if(input.equals("MUD")){
+                else if(input.toLowerCase().equals("mud")){
                     terrain=2;
                     validTerrain=true;
                 }
-                else if(input.equals("AIR")){
+                else if(input.toLowerCase().equals("air")){
                     terrain=3;
                     validTerrain=true;
                 }
-                else if(input.equals("PARADISUS")){
+                else if(input.toLowerCase().equals("paradisus")){
                     terrain=4;
                     validTerrain=true;
                 }
-                else if(input.equals("KITCHEN")){
+                else if(input.toLowerCase().equals("kitchen")){
                     terrain=5;
                     validTerrain=true;
                 }
