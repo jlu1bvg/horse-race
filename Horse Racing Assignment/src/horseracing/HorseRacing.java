@@ -146,6 +146,7 @@ public class HorseRacing {
             
             System.out.println("Race is Over");
             race.displayBetResults();
+            player.resetBet();
             gameOver = playAgain(in);
             
         }

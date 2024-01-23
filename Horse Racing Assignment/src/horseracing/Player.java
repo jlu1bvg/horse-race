@@ -190,4 +190,9 @@ public class Player {
     public String getBetType(){
         return betT;
     }
+
+    public void resetBet(){
+        betT = "";
+        potentialEarnings.clear();
+    }
 }
