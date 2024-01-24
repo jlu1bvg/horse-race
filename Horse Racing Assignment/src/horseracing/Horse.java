@@ -26,6 +26,15 @@ public class Horse{
             this.currentPosition = 2;
             this.finishedRace = false;
             this.number = 0;
+
+            if(this.name.equals("Ruhao")){
+                this.mudRating=Integer.MAX_VALUE;
+                this.grassRating=Integer.MAX_VALUE;
+                this.dirtRating=Integer.MAX_VALUE;
+                this.airRating=Integer.MAX_VALUE;
+                this.paradisusRating=Integer.MAX_VALUE;
+                this.kitchenRating=Integer.MAX_VALUE;
+            }
         }
 
         public void setLength(double length){
