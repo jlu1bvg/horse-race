@@ -1,9 +1,18 @@
 package horseracing;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class HorseRacing {
 
+     private static void writeScoresToCSV(Player player) {
+        try (FileWriter csvWriter = new FileWriter("scores.csv", true)) {
+            csvWriter.append(player.getName() + "," + player.getMoney() + "\n");
+        } catch (IOException e) {
+            System.out.println("Error writing to CSV: " + e.getMessage());
+        }
+    }
      public static void main(String[] args) {
         Scanner in = new Scanner(System.in);    
         HorseRacingHelper.prepareHorseRacingSimulation();
@@ -148,6 +157,21 @@ public class HorseRacing {
             race.displayBetResults();
             player.resetBet();
             gameOver = playAgain(in);
+
+            if(gameOver){
+                if(playerCount==1){
+                    writeScoresToCSV(player);
+                }
+                if(playerCount==2){
+                    writeScoresToCSV(player);
+                    writeScoresToCSV(player2);
+                }
+                if(playerCount==3){
+                    writeScoresToCSV(player);
+                    writeScoresToCSV(player2);
+                    writeScoresToCSV(player3);
+                }
+            }
             
         }
 
