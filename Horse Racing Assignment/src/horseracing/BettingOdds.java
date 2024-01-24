@@ -28,6 +28,8 @@ public class BettingOdds {
                 for (int i = 14; i > 0; i--) {
                         if (raceObj.getIncrement(horse) >= i){
                             odds = Math.round(20 * Math.pow(0.86, i) - 2)/2.0;
+                            if(odds < 1)
+                                odds += 0.5;
                             break;
                         }
                     }
