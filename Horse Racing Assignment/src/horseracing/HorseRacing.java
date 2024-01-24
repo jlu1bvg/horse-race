@@ -160,8 +160,19 @@ public class HorseRacing {
                     break;
                 }
                 try{
-                    numHorsesInRace=Integer.parseInt(input);
-                    validNum=true;
+                    int enteredNum=Integer.parseInt(input);
+                    if(enteredNum<=0){
+                        System.out.println("Number too low");
+                        validNum=false;
+                    }
+                    else if(enteredNum>horseList.size()){
+                        System.out.println("Number too high");
+                        validNum=false;
+                    }
+                    else{
+                        numHorsesInRace=enteredNum;
+                        validNum=true;
+                    }
                 }
                 catch(NumberFormatException e){
                     System.out.println("Invalid number");
