@@ -13,7 +13,7 @@ public class BetDialogue {
     public void CreateBetDialogue(Player player, BettingOdds odd, List<Horse> horses){
         odds = odd;
         System.out.println();
-        System.out.println(player.getName()+" is betting");
+        System.out.println(player.getName() + " is betting");
         String result = "y"; 
         boolean decisionMade=false;
         System.out.println("Remaining money: " + player.getMoney());

@@ -40,7 +40,7 @@ public class HorseRacing {
             String enteredName="";
             Player player=new Player();
             while(!nameEntered){
-                System.out.print("Player"+(i+1)+" name: ");
+                System.out.print("Player " + (i+1) + " name: ");
                 enteredName=in.nextLine();
                 if(enteredName.equals("")){
                     System.out.println("Name cannot be empty");
@@ -137,7 +137,7 @@ public class HorseRacing {
             for(int i=0;i<players.getPlayers().size();i++){
                 players.getPlayers().get(i).resetBet();
             }
-            gameOver = playAgain(in);
+            gameOver = playAgain(in).equals("n");
 
             if(gameOver){
                 for(int i=0;i<players.getPlayers().size();i++){
@@ -150,15 +150,22 @@ public class HorseRacing {
         
     }
 
-    private static boolean playAgain(Scanner in) {
+    private static String playAgain(Scanner in) {
         System.out.print("\u001B[?25l");  // Hide the cursor
-        System.out.print("Play Again: (y/n): ");
-        String result = in.nextLine();
-
-        if (result.equals("n"))
-            return true;
-
-        return false;
-
+        boolean validInput = false;
+        String temp = "";
+        while(!validInput){
+            System.out.print("Play Again: (y/n): ");
+            String result = in.nextLine();
+            if (result.equals("y")){
+                temp = "y";
+                validInput = true;
+            }else if (result.equals("n")){
+                temp = "n";
+                validInput = true;
+            }else
+                System.out.println("Please enter y/n:");
+        }
+        return temp;
     }
 }

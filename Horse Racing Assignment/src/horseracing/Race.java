@@ -164,45 +164,45 @@ public class Race {
         System.out.println("\n\nBet Results");
         System.out.println("------------");
         for(int i=0;i<players.getPlayers().size();i++){
-            System.out.println("\n"+players.getPlayers().get(i).getName()+"'s bet");
+            System.out.println(players.getPlayers().get(i).getName()+"'s bet");
             System.out.print("Type of bet: ");
             System.out.println(players.getPlayers().get(i).getBetType());
             System.out.print("Bet Log (Potential Earnings): ");
             System.out.println(players.getPlayers().get(i).getEarnings());
             if(players.getPlayers().get(i).getEarnings() == null){
-                System.out.println("no bet placed, therefore no reward.");
+                System.out.println("No bet placed, therefore no reward.");
             }else{
                 if(players.getPlayers().get(i).getBetType().equals("win")){
                     if(players.getPlayers().get(i).getEarnings().get(results.get(0).getName()) == null){
-                        System.out.println("you lost the bet.");
+                        System.out.println("You lost the bet." + "\n");
                     }else{
-                        System.out.println("You won " + players.getPlayers().get(i).getEarnings().get(results.get(0).getName()) + " dollars");
+                        System.out.println("You won " + players.getPlayers().get(i).getEarnings().get(results.get(0).getName()) + " dollars" + "\n");
                         players.getPlayers().get(i).betWon(results.get(0).getName());
                     }
                 }else if(players.getPlayers().get(i).getBetType().equals("place")){
                     if(players.getPlayers().get(i).getEarnings().get(results.get(0).getName()) == null && players.getPlayers().get(i).getEarnings().get(results.get(1).getName()) == null){
-                        System.out.println("you lost the bet.");
+                        System.out.println("You lost the bet." + "\n");
                     }else{
                         if(players.getPlayers().get(i).getEarnings().get(results.get(0).getName()) != null){
-                            System.out.println("You won " + players.getPlayers().get(i).getEarnings().get(results.get(0).getName()) + " dollars");
+                            System.out.println("You won " + players.getPlayers().get(i).getEarnings().get(results.get(0).getName()) + " dollars" + "\n");
                             players.getPlayers().get(i).betWon(results.get(0).getName());
                         }else if(players.getPlayers().get(i).getEarnings().get(results.get(1).getName()) != null){
-                            System.out.println("You won " + players.getPlayers().get(i).getEarnings().get(results.get(1).getName()) + " dollars");
+                            System.out.println("You won " + players.getPlayers().get(i).getEarnings().get(results.get(1).getName()) + " dollars" + "\n");
                             players.getPlayers().get(i).betWon(results.get(1).getName());
                         }
                     }
                 }else if(players.getPlayers().get(i).getBetType().equals("show")){
                     if(players.getPlayers().get(i).getEarnings().get(results.get(0).getName()) == null && players.getPlayers().get(i).getEarnings().get(results.get(1).getName()) == null && players.getPlayers().get(i).getEarnings().get(results.get(2).getName()) == null){
-                        System.out.println("you lost the bet.");
+                        System.out.println("You lost the bet." + "\n");
                     }else{
                         if(players.getPlayers().get(i).getEarnings().get(results.get(0).getName()) != null){
-                            System.out.println("You won " + players.getPlayers().get(i).getEarnings().get(results.get(0).getName()) + " dollars");
+                            System.out.println("You won " + players.getPlayers().get(i).getEarnings().get(results.get(0).getName()) + " dollars" + "\n");
                             players.getPlayers().get(i).betWon(results.get(0).getName());
                         }else if(players.getPlayers().get(i).getEarnings().get(results.get(1).getName()) != null){
-                            System.out.println("You won " + players.getPlayers().get(i).getEarnings().get(results.get(1).getName()) + " dollars");
+                            System.out.println("You won " + players.getPlayers().get(i).getEarnings().get(results.get(1).getName()) + " dollars" + "\n");
                             players.getPlayers().get(i).betWon(results.get(1).getName());
                         }else{
-                            System.out.println("You won " + players.getPlayers().get(i).getEarnings().get(results.get(2).getName()) + " dollars");
+                            System.out.println("You won " + players.getPlayers().get(i).getEarnings().get(results.get(2).getName()) + " dollars" + "\n");
                             players.getPlayers().get(i).betWon(results.get(2).getName());
                         }
                     }
@@ -213,17 +213,17 @@ public class Race {
                 
                     if (firstHorseWon && secondHorseWon) {
                         players.getPlayers().get(i).betWon(horses[0] + " & " + horses[1]);
-                        System.out.println("You won " + players.getPlayers().get(i).getEarnings().get(horses[0] + " & " + horses[1]) + " dollars on box bet");
+                        System.out.println("You won " + players.getPlayers().get(i).getEarnings().get(horses[0] + " & " + horses[1]) + " dollars on box bet" + "\n");
                     } else {
-                        System.out.println("You lost the box bet.");
+                        System.out.println("You lost the box bet." + "\n");
                     }
                 } else if (players.getPlayers().get(i).getBetType().equals("exacta")) {
                     String[] horses = players.getPlayers().get(i).getEarnings().keySet().toArray(new String[0])[0].split(" -> ");
                     if (results.get(0).getName().equals(horses[0]) && results.get(1).getName().equals(horses[1])) {
                         players.getPlayers().get(i).betWon(horses[0] + " -> " + horses[1]);
-                        System.out.println("You won " + players.getPlayers().get(i).getEarnings().get(horses[0] + " -> " + horses[1]) + " dollars on exacta bet");
+                        System.out.println("You won " + players.getPlayers().get(i).getEarnings().get(horses[0] + " -> " + horses[1]) + " dollars on exacta bet" + "\n");
                     } else {
-                        System.out.println("You lost the exacta bet.");
+                        System.out.println("You lost the exacta bet." + "\n");
                     }
                 }
                 
