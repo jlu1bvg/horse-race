@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Player {
     Scanner console=new Scanner(System.in);
-    private int money = 100;
+    private int money = 1000;
     private Map<String, Integer>potentialEarnings;
     private String name;
     private String betT = "";
