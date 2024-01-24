@@ -83,17 +83,17 @@ public class HorseRacingHelper {
         return allHorses;
     }
 
-    private static List<Horse> getNDifferentHorses(int n) {
-        // Ensure n is not greater than the size of the input list
-        n = Math.min(n, allHorses.size());
+    // private static List<Horse> getNDifferentHorses(int n) {
+    //     // Ensure n is not greater than the size of the input list
+    //     n = Math.min(n, allHorses.size());
 
-        // Shuffle the list
-        List<Horse> shuffledList = new ArrayList<>(allHorses);
-        Collections.shuffle(shuffledList);
+    //     // Shuffle the list
+    //     List<Horse> shuffledList = new ArrayList<>(allHorses);
+    //     Collections.shuffle(shuffledList);
 
-        // Take the first n elements
-        return shuffledList.subList(0, n);
-    }
+    //     // Take the first n elements
+    //     return shuffledList.subList(0, n);
+    // }
 
     public static List<Horse> shuffleHorses(){
         // Shuffle the list
@@ -135,6 +135,12 @@ public class HorseRacingHelper {
         
         for (int j = 1; j <= horseList.size(); j++) {
             horseList.get(j-1).setNumber(j);
+        }
+
+        for(int i=0;i<horseList.size();i++){
+            if(horseList.get(i).getName().equals("Ruhao")){
+                horseList.get(i).setLength(raceLength);
+            }
         }
 
         return new Race(horseList, raceLength, terrain, players);
