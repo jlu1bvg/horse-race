@@ -1,12 +1,13 @@
 package horseracing;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PlayerContainer {
-    private static List<Player> players;
+    private List<Player> players;
 
     public PlayerContainer() {
-        
+        this.players=new ArrayList<>();
     }
 
     public List<Player> getPlayers() {

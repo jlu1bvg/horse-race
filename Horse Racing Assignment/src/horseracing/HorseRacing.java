@@ -26,9 +26,6 @@ public class HorseRacing {
                 if(playerCount<=0){
                     System.out.println("Number too low");
                 }
-                else if(playerCount>3){
-                    System.out.println("Number too high");
-                }
                 else{
                     validPlayerCount=true;
                 }
@@ -37,29 +34,24 @@ public class HorseRacing {
                 System.out.println("Invalid number");
             }
         }
-        Player player=new Player();
-        Player player2 = new Player();
-        Player player3 = new Player();
-        if(playerCount==1){
-            System.out.print("\nPlayer1 name: ");
-            player.setName(in.nextLine());
-        }
-        if(playerCount==2){
-            System.out.print("\nPlayer1 name: ");
-            player.setName(in.nextLine());
-            
-            System.out.print("\nPlayer2 name: ");
-            player2.setName(in.nextLine());
-        }
-        if(playerCount==3){
-            System.out.print("\nPlayer1 name: ");
-            player.setName(in.nextLine());
-
-            System.out.print("\nPlayer2 name: ");
-            player2.setName(in.nextLine());
-
-            System.out.print("\nPlayer3 name: ");
-            player3.setName(in.nextLine());
+        PlayerContainer players=new PlayerContainer();
+        for(int i=0;i<playerCount;i++){
+            boolean nameEntered=false;
+            String enteredName="";
+            Player player=new Player();
+            while(!nameEntered){
+                System.out.print("Player"+(i+1)+" name: ");
+                enteredName=in.nextLine();
+                if(enteredName.equals("")){
+                    System.out.println("Name cannot be empty");
+                    nameEntered=false;
+                }
+                else{
+                    player.setName(enteredName);
+                    nameEntered=true;
+                }
+            }
+            players.addPlayer(player);
         }
 
         while(!gameOver){
@@ -134,42 +126,22 @@ public class HorseRacing {
             int numHorsesInRace = (int)(Math.random()*7)+5;
             
             Race race = null;
-            if(playerCount==1){
-                race = HorseRacingHelper.createRace(numHorsesInRace, length, terrain, player);
-                BettingOdds odds = new BettingOdds(race);
-                race.displayRaceInfo(odds,terrain);
-                race.startRace();
-            }
-            if(playerCount==2){
-                race =HorseRacingHelper.createRace(numHorsesInRace, length, terrain, player,player2);
-                BettingOdds odds=new BettingOdds(race);
-                race.displayRaceInfo(odds,terrain);
-                race.startRace();
-            }
-            if(playerCount==3){
-                race =HorseRacingHelper.createRace(numHorsesInRace, length, terrain, player,player2,player3);
-                BettingOdds odds=new BettingOdds(race);
-                race.displayRaceInfo(odds,terrain);
-                race.startRace();
-            }
+
+            race = HorseRacingHelper.createRace(numHorsesInRace, length, terrain, players);
+            BettingOdds odds = new BettingOdds(race);
+            race.displayRaceInfo(odds,terrain);
+            race.startRace();
             
             System.out.println("Race is Over");
             race.displayBetResults();
-            player.resetBet();
+            for(int i=0;i<players.getPlayers().size();i++){
+                players.getPlayers().get(i).resetBet();
+            }
             gameOver = playAgain(in);
 
             if(gameOver){
-                if(playerCount==1){
-                    writeScoresToCSV(player);
-                }
-                if(playerCount==2){
-                    writeScoresToCSV(player);
-                    writeScoresToCSV(player2);
-                }
-                if(playerCount==3){
-                    writeScoresToCSV(player);
-                    writeScoresToCSV(player2);
-                    writeScoresToCSV(player3);
+                for(int i=0;i<players.getPlayers().size();i++){
+                    writeScoresToCSV(players.getPlayers().get(i));
                 }
             }
             

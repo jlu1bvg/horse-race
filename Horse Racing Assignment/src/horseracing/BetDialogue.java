@@ -15,9 +15,19 @@ public class BetDialogue {
         System.out.println();
         System.out.println(player.getName()+" is betting");
         String result = "y"; 
+        boolean decisionMade=false;
         System.out.println("Remaining money: " + player.getMoney());
-        System.out.println("Do u want to place a bet (y/n)");
-        result = console.nextLine();
+        while(!decisionMade){
+            System.out.println("Do u want to place a bet (y/n)");
+            result = console.nextLine();
+            if(!(result.equals("y")||result.equals("n"))){
+                System.out.println("Invalid input");
+                decisionMade=false;
+            }
+            else{
+                decisionMade=true;
+            }
+        }
         while (result.equals("y")) {
                 int amount = 0;
                 boolean validBetEntered = false;

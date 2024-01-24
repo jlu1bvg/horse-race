@@ -95,7 +95,7 @@ public class HorseRacingHelper {
         return shuffledList.subList(0, n);
     }
 
-    public static Race createRace(int numHorses, int raceType, int raceTerrain, Player player){
+    public static Race createRace(int numHorses, int raceType, int raceTerrain, PlayerContainer players){
         double[] raceLengths;
         if (raceType == SHORT)
             raceLengths = SHORT_RACES;
@@ -128,79 +128,7 @@ public class HorseRacingHelper {
             horses.get(j-1).setNumber(j);
         }
 
-        return new Race(horses, raceLength, terrain, player);
-    }
-
-    public static Race createRace(int numHorses, int raceType, int raceTerrain, Player player,Player player2){
-        double[] raceLengths;
-        if (raceType == SHORT)
-            raceLengths = SHORT_RACES;
-        else if (raceType == MIDDLE)
-            raceLengths = MIDDLE_RACES;
-        else
-            raceLengths = LONG_RACES;
-
-        String terrain = "";
-        if (raceTerrain == GRASS)
-            terrain = "Grass";
-        else if (raceTerrain == DIRT)
-            terrain = "Dirt";
-        else if(raceTerrain==MUD)
-            terrain = "Mud";
-        else if(raceTerrain==AIR)
-            terrain="Air";
-        else if(raceTerrain==PARADISUS)
-            terrain="Paradisus Varadero";
-        else
-            terrain="Mr. Deslauriers Kitchen";
-
-        double raceLength = raceLengths[(int)(Math.random()*raceLengths.length)];
-            
-
-        List<Horse> horses = getNDifferentHorses(numHorses);
-
-        
-        for (int j = 1; j <= horses.size(); j++) {
-            horses.get(j-1).setNumber(j);
-        }
-
-        return new Race(horses, raceLength, terrain, player,player2);
-    }
-
-    public static Race createRace(int numHorses, int raceType, int raceTerrain, Player player,Player player2,Player player3){
-        double[] raceLengths;
-        if (raceType == SHORT)
-            raceLengths = SHORT_RACES;
-        else if (raceType == MIDDLE)
-            raceLengths = MIDDLE_RACES;
-        else
-            raceLengths = LONG_RACES;
-
-        String terrain = "";
-        if (raceTerrain == GRASS)
-            terrain = "Grass";
-        else if (raceTerrain == DIRT)
-            terrain = "Dirt";
-        else if(raceTerrain==MUD)
-            terrain = "Mud";
-        else if(raceTerrain==AIR)
-            terrain="Air";
-        else if(raceTerrain==PARADISUS)
-            terrain="Paradisus Varadero";
-        else
-            terrain="Mr. Deslauriers Kitchen";
-
-        double raceLength = raceLengths[(int)(Math.random()*raceLengths.length)];
-            
-
-        List<Horse> horses = getNDifferentHorses(numHorses);
-
-        
-        for (int j = 1; j <= horses.size(); j++) {
-            horses.get(j-1).setNumber(j);
-        }
-
-        return new Race(horses, raceLength, terrain, player,player2,player3);
+        return new Race(horses, raceLength, terrain, players);
     }
 
     public static void clearConsole() {
