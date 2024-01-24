@@ -242,13 +242,13 @@ public class Player {
                     }
 
                 if (horse1 != null && horse2 != null) {
-                    double exactaOdds = odds.getOdds(horse1, "win") * odds.getOdds(horse2, "win");
+                    double exactaOdds = odds.getOdds(horse1, "win") * odds.getOdds(horse2, "place") + 1;
                     potentialEarnings.put(horse1.getName() + " -> " + horse2.getName(), (int)(amount * exactaOdds));
                     money -= amount;
                     betT = "exacta";
                     System.out.println("Exacta bet of " + amount + " placed on " + horse1.getName() + " -> " + horse2.getName());
                 } else {
-                    System.out.println("invalid input");
+                    System.out.println("Invalid input");
                 }
                 }
             }
