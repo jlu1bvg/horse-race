@@ -95,7 +95,16 @@ public class HorseRacingHelper {
         return shuffledList.subList(0, n);
     }
 
-    public static Race createRace(int numHorses, int raceType, int raceTerrain, PlayerContainer players){
+    public static List<Horse> shuffleHorses(){
+        // Shuffle the list
+        List<Horse> shuffledList = new ArrayList<>(allHorses);
+        Collections.shuffle(shuffledList);
+
+        // Take the first n elements
+        return shuffledList;
+    }
+
+    public static Race createRace(int numHorses, int raceType, int raceTerrain, PlayerContainer players,List<Horse> horseList){
         double[] raceLengths;
         if (raceType == SHORT)
             raceLengths = SHORT_RACES;
@@ -121,14 +130,14 @@ public class HorseRacingHelper {
         double raceLength = raceLengths[(int)(Math.random()*raceLengths.length)];
             
 
-        List<Horse> horses = getNDifferentHorses(numHorses);
+        // List<Horse> horses = getNDifferentHorses(numHorses);
 
         
-        for (int j = 1; j <= horses.size(); j++) {
-            horses.get(j-1).setNumber(j);
+        for (int j = 1; j <= horseList.size(); j++) {
+            horseList.get(j-1).setNumber(j);
         }
 
-        return new Race(horses, raceLength, terrain, players);
+        return new Race(horseList, raceLength, terrain, players);
     }
 
     public static void clearConsole() {

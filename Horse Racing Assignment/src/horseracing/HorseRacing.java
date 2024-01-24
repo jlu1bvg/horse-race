@@ -2,6 +2,8 @@ package horseracing;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class HorseRacing {
@@ -121,13 +123,60 @@ public class HorseRacing {
                 }
             }
 
+            int numHorsesInRace = (int)(Math.random()*7)+5;
+            List<Horse> horseList=HorseRacingHelper.shuffleHorses();
+            int addedHorses=0;
+            boolean addingHorses=true;
+            while(addingHorses){
+                boolean validHorse=false;
+                while(!validHorse){
+                    System.out.print("Add horse to race (leave empty to continue): ");
+                    String input=in.nextLine();
+                    if(input.equals("")){
+                        addingHorses=false;
+                        break;
+                    }
+                    for(int i=0;i<horseList.size();i++){
+                        if(input.equals(horseList.get(i).getName())){
+                            Collections.swap(horseList,addedHorses,i);
+                            System.out.println(input+" added to race");
+                            addedHorses++;
+                            validHorse=true;
+                        }
+                    }
+                    if(!validHorse){
+                        System.out.println("Horse not found");
+                    }
+                }
+
+            }
+
+            boolean validNum=false;
+            while(!validNum){
+                System.out.print("Horses in race (leave empty for random): ");
+                String input=in.nextLine();
+                if(input.equals("")){
+                    validNum=true;
+                    break;
+                }
+                try{
+                    numHorsesInRace=Integer.parseInt(input);
+                    validNum=true;
+                }
+                catch(NumberFormatException e){
+                    System.out.println("Invalid number");
+                    validNum=false;
+                }
+            }
+            horseList=horseList.subList(0,numHorsesInRace);
+
             HorseRacingHelper.clearConsole();
 
-            int numHorsesInRace = (int)(Math.random()*7)+5;
+            
             
             Race race = null;
 
-            race = HorseRacingHelper.createRace(numHorsesInRace, length, terrain, players);
+            race = HorseRacingHelper.createRace(numHorsesInRace, length, terrain, players,horseList);
             BettingOdds odds = new BettingOdds(race);
             race.displayRaceInfo(odds,terrain);
             race.startRace();
