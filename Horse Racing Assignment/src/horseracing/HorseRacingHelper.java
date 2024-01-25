@@ -100,7 +100,6 @@ public class HorseRacingHelper {
         List<Horse> shuffledList = new ArrayList<>(allHorses);
         Collections.shuffle(shuffledList);
 
-        // Take the first n elements
         return shuffledList;
     }
 

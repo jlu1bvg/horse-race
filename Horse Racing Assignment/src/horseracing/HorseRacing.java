@@ -19,12 +19,20 @@ public class HorseRacing {
         Scanner in = new Scanner(System.in);    
         HorseRacingHelper.prepareHorseRacingSimulation();
         boolean gameOver = false;
+
+        //input for players
         boolean validPlayerCount=false;
         int playerCount=1;
         while(!validPlayerCount){
+
+            //text prompt
             System.out.print("Number of Players: ");
             try{
+
+                //try to convert input to int
                 playerCount=Integer.parseInt(in.nextLine());
+
+                //cant have no players
                 if(playerCount<=0){
                     System.out.println("Number too low");
                 }
@@ -32,36 +40,54 @@ public class HorseRacing {
                     validPlayerCount=true;
                 }
             }
+
+            //input failsafe
             catch(NumberFormatException e){
                 System.out.println("Invalid number");
             }
         }
+
+        //create list of players
         PlayerContainer players=new PlayerContainer();
         for(int i=0;i<playerCount;i++){
             boolean nameEntered=false;
             String enteredName="";
             Player player=new Player();
             while(!nameEntered){
+
+                //text prompt
                 System.out.print("Player " + (i+1) + " name: ");
                 enteredName=in.nextLine();
+
+                //cant have empty name
                 if(enteredName.equals("")){
                     System.out.println("Name cannot be empty");
                     nameEntered=false;
                 }
+
+                //sets player name
                 else{
                     player.setName(enteredName);
                     nameEntered=true;
                 }
             }
+
+            //adds player to list
             players.addPlayer(player);
         }
 
         while(!gameOver){
+
+            //input for race length
             boolean validLength=false;
             int length=0;
             while(!validLength){
+
+                //text prompt
                 System.out.print("Choose race length (leave empty for random): \nSHORT\nMIDDLE\nLONG\n");
                 String input=in.nextLine();
+
+                //sets race length based on input
                 if(input.equals("")){
                     length=(int)(Math.random()*2);
                     validLength=true;
@@ -78,17 +104,24 @@ public class HorseRacing {
                     length=2;
                     validLength=true;
                 }
+
+                //failsafe
                 else{
                     System.out.println("Invalid input");
                     validLength=false;
                 }
             }
             
+            //input for terrain type
             boolean validTerrain=false;
             int terrain=0;
             while(!validTerrain){
+
+                //text prompt
                 System.out.print("Choose race terrain (leave empty for random): \nGRASS\nDIRT\nMUD\nAIR\nPARADISUS\nKITCHEN\n");
                 String input=in.nextLine();
+
+                //sets terrain type based on input
                 if(input.equals("")){
                     terrain=(int)(Math.random()*5);
                     validTerrain=true;
@@ -117,25 +150,36 @@ public class HorseRacing {
                     terrain=5;
                     validTerrain=true;
                 }
+
+                //failsafe
                 else{
                     System.out.println("Invalid input");
                     validTerrain=false;
                 }
             }
 
+            //horse stuff for race
             int numHorsesInRace = (int)(Math.random()*7)+5;
             List<Horse> horseList=HorseRacingHelper.shuffleHorses();
             int addedHorses=0;
             boolean addingHorses=true;
+
+            //adding specific horses from csv
             while(addingHorses){
                 boolean validHorse=false;
                 while(!validHorse){
+
+                    //text prompt
                     System.out.print("Add horse to race (leave empty to continue): ");
                     String input=in.nextLine();
+
+                    //exits loop
                     if(input.equals("")){
                         addingHorses=false;
                         break;
                     }
+                    
+                    //finds horse to move to front of list
                     for(int i=0;i<horseList.size();i++){
                         if(input.equals(horseList.get(i).getName())){
                             Collections.swap(horseList,addedHorses,i);
@@ -144,6 +188,8 @@ public class HorseRacing {
                             validHorse=true;
                         }
                     }
+
+                    //failsafe
                     if(!validHorse){
                         System.out.println("Horse not found");
                     }
@@ -151,16 +197,25 @@ public class HorseRacing {
 
             }
 
+            //input for number of horses in race
             boolean validNum=false;
             while(!validNum){
                 System.out.print("Number of horses in race (leave empty for random): ");
                 String input=in.nextLine();
+
+                //sets num horses to random
                 if(input.equals("")){
                     validNum=true;
                     break;
                 }
+
+                //if something entered
                 try{
+
+                    //tries to convert to int
                     int enteredNum=Integer.parseInt(input);
+
+                    //number failsafes
                     if(enteredNum<=0){
                         System.out.println("Number too low");
                         validNum=false;
@@ -169,16 +224,22 @@ public class HorseRacing {
                         System.out.println("Number too high");
                         validNum=false;
                     }
+
+                    //sets num horses
                     else{
                         numHorsesInRace=enteredNum;
                         validNum=true;
                     }
                 }
+                
+                //failsafe
                 catch(NumberFormatException e){
                     System.out.println("Invalid number");
                     validNum=false;
                 }
             }
+
+            //shortens horse list to ones in race
             horseList=horseList.subList(0,numHorsesInRace);
 
             HorseRacingHelper.clearConsole();
@@ -187,18 +248,23 @@ public class HorseRacing {
             
             Race race = null;
 
+            //race prep
             race = HorseRacingHelper.createRace(numHorsesInRace, length, terrain, players,horseList);
             BettingOdds odds = new BettingOdds(race);
             race.displayRaceInfo(odds,terrain);
             race.startRace();
             
+            //after race stuff
             System.out.println("Race is Over");
             race.displayBetResults();
+
+            //resets player bets
             for(int i=0;i<players.getPlayers().size();i++){
                 players.getPlayers().get(i).resetBet();
             }
             gameOver = playAgain(in).equals("n");
 
+            //writes player data to csv
             if(gameOver){
                 for(int i=0;i<players.getPlayers().size();i++){
                     writeScoresToCSV(players.getPlayers().get(i));
@@ -214,15 +280,23 @@ public class HorseRacing {
         System.out.print("\u001B[?25l");  // Hide the cursor
         boolean validInput = false;
         String temp = "";
+        
+        //replay
         while(!validInput){
+
+            //text prompt
             System.out.print("Play Again: (y/n): ");
             String result = in.nextLine();
+
+            //decision
             if (result.equals("y")){
                 temp = "y";
                 validInput = true;
             }else if (result.equals("n")){
                 temp = "n";
                 validInput = true;
+
+            //failsafe
             }else
                 System.out.println("Please enter y/n:");
         }
