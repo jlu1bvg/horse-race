@@ -244,8 +244,6 @@ public class HorseRacing {
 
             HorseRacingHelper.clearConsole();
 
-            
-            
             Race race = null;
 
             //race prep

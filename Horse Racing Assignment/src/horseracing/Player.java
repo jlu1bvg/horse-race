@@ -34,9 +34,11 @@ public class Player {
                 boolean vaildHorseEntered = false;
                 Horse horse=null;
                 int horseNum=0;
+                //Prompts user for the horse they want to win
                 while(!vaildHorseEntered){
                     System.out.println("Which horse do u choose? (enter name or number)");
                     String horseName=console.nextLine();
+                    //Allows user to enter a number instead of a name for horse
                     try{
                         horseNum=Integer.parseInt(horseName)-1;
                         if(horseNum+1>horses.size()||horseNum<0){
@@ -48,6 +50,7 @@ public class Player {
                             vaildHorseEntered = true;
                         }
                     }
+                    //Makes sure user enters a valid horse name
                     catch(NumberFormatException e){
                         for (Horse h:horses){
                             if(h.getName().equals(horseName)){
@@ -59,6 +62,7 @@ public class Player {
                             System.out.println("Horse not found. Please try again: ");
                     }
                 }
+                //Adds your potential winnings to potentialEarnings and takes money away from the wallet.
                 potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse, "win")));
                 money -= amount;
                 betT = "win";
@@ -67,9 +71,11 @@ public class Player {
                 boolean vaildHorseEntered = false;
                 Horse horse=null;
                 int horseNum=0;
+                //Prompts user for the horse they want to come first or second
                 while(!vaildHorseEntered){
                     System.out.println("Which horse do u choose? (enter name or number)");
                     String horseName=console.nextLine();
+                    //Allows user to enter a number instead of a name for horse
                     try{
                         horseNum=Integer.parseInt(horseName)-1;
                         if(horseNum+1>horses.size()||horseNum<0){
@@ -81,6 +87,7 @@ public class Player {
                             vaildHorseEntered = true;
                         }
                     }
+                    //Makes sure user enters a valid horse name
                     catch(NumberFormatException e){
                         for (Horse h:horses){
                             if(h.getName().equals(horseName)){
@@ -92,6 +99,7 @@ public class Player {
                             System.out.println("Horse not found. Please try again: ");
                     }
                 }
+                //Adds your potential winnings to potentialEarnings and takes money away from the wallet.
                 potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse, "place")));
                 money -= amount;
                 betT = "place";
@@ -100,9 +108,11 @@ public class Player {
                 boolean vaildHorseEntered = false;
                 Horse horse=null;
                 int horseNum=0;
+                //Prompts user for the horse they want to come first or second or third
                 while(!vaildHorseEntered){
                     System.out.println("Which horse do u choose? (enter name or number)");
                     String horseName=console.nextLine();
+                    //Allows user to enter a number instead of a name for horse
                     try{
                         horseNum=Integer.parseInt(horseName)-1;
                         if(horseNum+1>horses.size()||horseNum<0){
@@ -114,6 +124,7 @@ public class Player {
                             vaildHorseEntered = true;
                         }
                     }
+                    //Makes sure user enters a valid horse name
                     catch(NumberFormatException e){
                         for (Horse h:horses){
                             if(h.getName().equals(horseName)){
@@ -125,6 +136,7 @@ public class Player {
                             System.out.println("Horse not found. Please try again: ");
                     }
                 }
+                //Adds your potential winnings to potentialEarnings and takes money away from the wallet.
                 potentialEarnings.put(horse.getName(), (int)(amount*odds.getOdds(horse, "show")));
                 money -= amount;
                 betT = "show";

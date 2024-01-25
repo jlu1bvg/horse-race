@@ -48,7 +48,7 @@ public class BetDialogue {
                 while(!validBetTypeEntered){
                     System.out.println("What type of bet do you want to place? (win, place, show, box, exacta)");
                     String betType = console.nextLine();
-                    if(!(betType.equals("win")||betType.equals("place")||betType.equals("show")||betType.equals("box")||betType.equals("exacta"))){
+                    if(!(betType.toLowerCase().equals("win")||betType.toLowerCase().equals("place")||betType.toLowerCase().equals("show")||betType.toLowerCase().equals("box")||betType.toLowerCase().equals("exacta"))){
                         System.out.println("Invalid bet type");
                         validBetTypeEntered=false;
                     }

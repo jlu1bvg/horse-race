@@ -5,8 +5,9 @@ public class BettingOdds {
     public BettingOdds(Race race){
         raceObj = race;
     }
-    
+    //Uses the increment system to calculate odds (the higher the increment the higher chances of winning, but lower odds)
     public double getOdds(Horse horse, String betType){
+        //Uses expotential function to calcuate the odds for win, place and show. 
         double odds = 0;
         if(betType.equals("win")){
                 for (int i = 14; i > 0; i--) {
