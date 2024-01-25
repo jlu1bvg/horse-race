@@ -9,8 +9,8 @@ import java.util.Scanner;
 public class HorseRacing {
 
      private static void writeScoresToCSV(Player player) {
-        try (FileWriter csvWriter = new FileWriter("scores.csv", true)) {
-            csvWriter.append(player.getName() + "," + player.getMoney() + "\n");
+        try (FileWriter csvWriter = new FileWriter("scores.csv", true)) { //creates a new filewriter
+            csvWriter.append(player.getName() + "," + player.getMoney() + "\n"); //writes the player name and money to the csv file
         } catch (IOException e) {
             System.out.println("Error writing to CSV: " + e.getMessage());
         }
