@@ -61,6 +61,8 @@ public class HorseRacingHelper {
 
                 String[] data = line.split(",");
                 if (data.length == 8) {
+
+                    //gets values from csv
                     String name = data[0];
                     int mudRating = Integer.parseInt(data[1]);
                     int grassRating = Integer.parseInt(data[2]);
@@ -70,6 +72,7 @@ public class HorseRacingHelper {
                     int kitchenRating=Integer.parseInt(data[7]);
                     double preferredLength = Double.parseDouble(data[4]);
 
+                    //constructs horse with values
                     Horse horse = new Horse(name, mudRating, grassRating, dirtRating, airRating,paradisusRating,kitchenRating,preferredLength);
                     allHorses.add(horse);
                 }
@@ -104,6 +107,8 @@ public class HorseRacingHelper {
     }
 
     public static Race createRace(int numHorses, int raceType, int raceTerrain, PlayerContainer players,List<Horse> horseList){
+        
+        //converts parameter to double
         double[] raceLengths;
         if (raceType == SHORT)
             raceLengths = SHORT_RACES;
@@ -112,6 +117,7 @@ public class HorseRacingHelper {
         else
             raceLengths = LONG_RACES;
 
+        //converts parameter to text
         String terrain = "";
         if (raceTerrain == GRASS)
             terrain = "Grass";
@@ -126,16 +132,18 @@ public class HorseRacingHelper {
         else
             terrain="Mr. Deslauriers Malevolent Kitchen";
 
+        //randomizes racelength
         double raceLength = raceLengths[(int)(Math.random()*raceLengths.length)];
             
 
         // List<Horse> horses = getNDifferentHorses(numHorses);
 
-        
+        //sets numbers for horses in race
         for (int j = 1; j <= horseList.size(); j++) {
             horseList.get(j-1).setNumber(j);
         }
 
+        //thing for making ruhao op
         for(int i=0;i<horseList.size();i++){
             if(horseList.get(i).getName().equals("Ruhao")){
                 horseList.get(i).setLength(raceLength);
