@@ -125,7 +125,7 @@ public class HorseRacingHelper {
         else if(raceTerrain==PARADISUS)
             terrain="Paradisus Varadero";
         else
-            terrain="Mr. Deslauriers Kitchen";
+            terrain="Mr. Deslauriers Malevolent Kitchen";
 
         double raceLength = raceLengths[(int)(Math.random()*raceLengths.length)];
             

@@ -153,7 +153,7 @@ public class HorseRacing {
 
             boolean validNum=false;
             while(!validNum){
-                System.out.print("Horses in race (leave empty for random): ");
+                System.out.print("Number of horses in race (leave empty for random): ");
                 String input=in.nextLine();
                 if(input.equals("")){
                     validNum=true;
