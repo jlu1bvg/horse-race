@@ -14,7 +14,10 @@ public class Horse{
         private boolean finishedRace;
         private int number;
     
+        //constructor
         public Horse(String name, int mudRating, int grassRating, int dirtRating,int airRating,int paradisusRating,int kitchenRating, double preferredLength) {
+            
+            //setting attributes
             this.name = name;
             this.mudRating = mudRating;
             this.grassRating = grassRating;
