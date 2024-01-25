@@ -27,6 +27,7 @@ public class Horse{
             this.finishedRace = false;
             this.number = 0;
 
+            //thing for making ruhao op
             if(this.name.equals("Ruhao")){
                 this.mudRating=Integer.MAX_VALUE;
                 this.grassRating=Integer.MAX_VALUE;
@@ -37,10 +38,13 @@ public class Horse{
             }
         }
 
+        //thing for making ruhao op
         public void setLength(double length){
             preferredLength=length;
         }
         
+        //getters and setters for attributes
+
         public void setNumber(int number){
             this.number = number;
         }
