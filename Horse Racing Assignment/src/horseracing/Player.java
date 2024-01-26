@@ -30,6 +30,9 @@ public class Player {
 
     public void placeBet(String betType, int amount, BettingOdds odds, List<Horse> horses){
         if(money >= amount){
+
+            //determines which bet to prompt based on input
+
             if (betType.toLowerCase().equals("win")){
                 boolean vaildHorseEntered = false;
                 Horse horse=null;
