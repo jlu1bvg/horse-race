@@ -139,7 +139,8 @@ public class Race {
         int numSpaces = (int)(raceLength*10);
         boolean done = false;
         HorseRacingHelper.pauseForMilliseconds(1000);
-        HorseRacingHelper.playBackgroundMusicAndWait("Race.wav");
+
+        //honor check
         boolean honored = false;
         for(int i=0;i<players.getPlayers().size();i++){ 
             if(players.getPlayers().get(i).isHonoredOne()){
@@ -147,19 +148,34 @@ public class Race {
             }
         }
 
-        //custom music
+        //custom intro music
+
+        if(terrainType==HorseRacingHelper.AIR&&honored==false){
+            HorseRacingHelper.playBackgroundMusicAndWait("Word of Honor OST Opening Theme Song.wav");
+        }
+        else if(terrainType==HorseRacingHelper.PARADISUS&&honored==false){
+            HorseRacingHelper.playBackgroundMusicAndWait("Crab Rave.wav");
+        }
+        else if(terrainType==HorseRacingHelper.KITCHEN&&honored==false){
+            HorseRacingHelper.playBackgroundMusicAndWait("C418 Mutation.wav");
+        }
+        else{
+            HorseRacingHelper.playBackgroundMusicAndWait("Race.wav");
+        }
+
+        //custom race music
 
         if(honored == true){
             HorseRacingHelper.playBackgroundMusic("Gojo Satoru - The Honored One.wav", true);
         }
         else if(terrainType==HorseRacingHelper.AIR){
-            HorseRacingHelper.playBackgroundMusic("horse_gallop.wav", true);//change to smth like word of honor
+            HorseRacingHelper.playBackgroundMusic("Word of Honor OST Opening Theme Song2.wav", true);//change to smth like word of honor
         }
         else if(terrainType==HorseRacingHelper.PARADISUS){
-            HorseRacingHelper.playBackgroundMusic("Crab Rave.wav", true);
+            HorseRacingHelper.playBackgroundMusic("Crab Rave2.wav", true);
         }
         else if(terrainType==HorseRacingHelper.KITCHEN){
-            HorseRacingHelper.playBackgroundMusic("Mutation.wav", true);
+            HorseRacingHelper.playBackgroundMusic("C418 Mutation2.wav", true);
             HorseRacingHelper.playBackgroundMusic("minecraft-eating-sound.wav", true);
             HorseRacingHelper.playBackgroundMusic("minecraft-drinking-sound-effect.wav", true);
         }
