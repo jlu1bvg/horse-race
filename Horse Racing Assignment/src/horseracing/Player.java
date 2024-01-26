@@ -11,6 +11,7 @@ public class Player {
     private Map<String, Integer>potentialEarnings;
     private String name;
     private String betT = "";
+    private boolean isHonoredOne = false;
 
     public Player(){
         this.potentialEarnings = new HashMap<String,Integer>();
@@ -358,5 +359,10 @@ public class Player {
 
     public void setMoney(int money){
         this.money = money;
+        this.isHonoredOne = true;
+    }
+
+    public boolean isHonoredOne(){
+        return name.equals("Gojo Satoru") && isHonoredOne;
     }
 }

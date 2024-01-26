@@ -140,10 +140,26 @@ public class Race {
         boolean done = false;
         HorseRacingHelper.pauseForMilliseconds(1000);
         HorseRacingHelper.playBackgroundMusicAndWait("Race.wav");
-        HorseRacingHelper.playBackgroundMusic("horse_gallop.wav", true);
+        boolean honored = false;
+        for(int i=0;i<players.getPlayers().size();i++){ 
+            if(players.getPlayers().get(i).isHonoredOne()){
+                honored = true;
+            }
+        }
+        if(honored == true){
+            HorseRacingHelper.playBackgroundMusic("Gojo Satoru - The Honored One.wav", true);
+        }
+        else{
+            HorseRacingHelper.playBackgroundMusic("horse_gallop.wav", true);
+        }
+        
 
         while(!done){
-            HorseRacingHelper.pauseForMilliseconds(100);
+            if(honored){
+                HorseRacingHelper.pauseForMilliseconds(500);
+            }else{
+                HorseRacingHelper.pauseForMilliseconds(100);
+            }
             HorseRacingHelper.clearConsole();
             HorseRacingHelper.updateTrack(numSpaces, horses);
             Horse horse = getNextHorse();
