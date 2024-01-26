@@ -300,6 +300,7 @@ public class HorseRacing {
             }else if (result.equals("n")){
                 temp = "n";
                 validInput = true;
+                System.out.println("Thank you for playing Horse Racing.");
 
             //failsafe
             }else
