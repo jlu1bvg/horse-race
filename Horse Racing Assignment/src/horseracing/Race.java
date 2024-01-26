@@ -169,7 +169,7 @@ public class Race {
             HorseRacingHelper.playBackgroundMusic("Gojo Satoru - The Honored One.wav", true);
         }
         else if(terrainType==HorseRacingHelper.AIR){
-            HorseRacingHelper.playBackgroundMusic("Word of Honor OST Opening Theme Song2.wav", true);//change to smth like word of honor
+            HorseRacingHelper.playBackgroundMusic("Word of Honor OST Opening Theme Song2.wav", true);
         }
         else if(terrainType==HorseRacingHelper.PARADISUS){
             HorseRacingHelper.playBackgroundMusic("Crab Rave2.wav", true);
