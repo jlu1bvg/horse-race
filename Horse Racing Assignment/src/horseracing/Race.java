@@ -156,7 +156,7 @@ public class Race {
             HorseRacingHelper.playBackgroundMusic("horse_gallop.wav", true);//change to smth like word of honor
         }
         else if(terrainType==HorseRacingHelper.PARADISUS){
-            HorseRacingHelper.playBackgroundMusic("Crab-Rave.wav", true);
+            HorseRacingHelper.playBackgroundMusic("Crab Rave.wav", true);
         }
         else if(terrainType==HorseRacingHelper.KITCHEN){
             HorseRacingHelper.playBackgroundMusic("Mutation.wav", true);
