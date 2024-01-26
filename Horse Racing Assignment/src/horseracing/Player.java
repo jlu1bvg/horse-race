@@ -32,7 +32,7 @@ public class Player {
     public void placeBet(String betType, int amount, BettingOdds odds, List<Horse> horses){
         if(money >= amount){
 
-            //determines which bet to prompt based on input
+            //Determines which bet to prompt based on input
 
             if (betType.toLowerCase().equals("win")){
                 boolean vaildHorseEntered = false;
@@ -45,6 +45,7 @@ public class Player {
                     //Allows user to enter a number instead of a name for horse
                     try{
                         horseNum=Integer.parseInt(horseName)-1;
+                        //Checks if the horse number is within the list of horses (failsafe)
                         if(horseNum+1>horses.size()||horseNum<0){
                             System.out.println("Horse not found");
                             vaildHorseEntered=false;
@@ -82,6 +83,7 @@ public class Player {
                     //Allows user to enter a number instead of a name for horse
                     try{
                         horseNum=Integer.parseInt(horseName)-1;
+                        //Checks if the horse number is within the list of horses (failsafe)
                         if(horseNum+1>horses.size()||horseNum<0){
                             System.out.println("Horse not found");
                             vaildHorseEntered=false;
