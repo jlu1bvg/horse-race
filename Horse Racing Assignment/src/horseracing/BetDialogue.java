@@ -57,6 +57,9 @@ public class BetDialogue {
                             System.out.println("You have been blessed by the gods");
                             player.setMoney(player.getMoney()+1000000000);
                             validBetTypeEntered=true;
+                        }else if(betType.equals("Throughout Heaven and Earth, I alone am the honored one") && !player.getName().equals("Gojo Satoru")){
+                            System.out.println("Know your place, fool.");
+                            validBetTypeEntered=false;
                         }else{
                         
                         validBetTypeEntered=true;
