@@ -225,7 +225,7 @@ public class Player {
 
                 //creates box bet
                 if (horse1 != null && horse2 != null) {
-                    double combinedOdds = (odds.getOdds(horse1, "win") + odds.getOdds(horse2, "win")); 
+                    double combinedOdds = (odds.getOdds(horse1, "win") + odds.getOdds(horse2, "place")); 
                     potentialEarnings.put(horse1.getName() + " & " + horse2.getName(), (int)(amount * combinedOdds));
                     money -= amount;
                     betT = "box";
