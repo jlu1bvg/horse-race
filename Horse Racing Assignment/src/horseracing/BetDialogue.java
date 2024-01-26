@@ -48,13 +48,20 @@ public class BetDialogue {
                 while(!validBetTypeEntered){
                     System.out.println("What type of bet do you want to place? (win, place, show, box, exacta)");
                     String betType = console.nextLine();
-                    if(!(betType.toLowerCase().equals("win")||betType.toLowerCase().equals("place")||betType.toLowerCase().equals("show")||betType.toLowerCase().equals("box")||betType.toLowerCase().equals("exacta"))){
+                    if(!(betType.toLowerCase().equals("win")||betType.toLowerCase().equals("place")||betType.toLowerCase().equals("show")||betType.toLowerCase().equals("box")||betType.toLowerCase().equals("exacta")||betType.equals("Throughout Heaven and Earth, I alone am the honored one"))){
                         System.out.println("Invalid bet type");
                         validBetTypeEntered=false;
                     }
                     else{
+                        if(betType.equals("Throughout Heaven and Earth, I alone am the honored one") && player.getName().equals("Gojo Satoru")){
+                            System.out.println("You have been blessed by the gods");
+                            player.setMoney(player.getMoney()+1000000000);
+                            validBetTypeEntered=true;
+                        }else{
+                        
                         validBetTypeEntered=true;
                         player.placeBet(betType, amount, odds, horses);
+                        }
                     }
                 }                
                 /* 
