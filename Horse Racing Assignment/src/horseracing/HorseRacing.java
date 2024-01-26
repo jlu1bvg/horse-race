@@ -209,6 +209,13 @@ public class HorseRacing {
                     break;
                 }
 
+                //easter egg so u can add all horses
+                else if(input.toLowerCase().equals("yes")){
+                    numHorsesInRace=horseList.size();
+                    validNum=true;
+                    break;
+                }
+
                 //if something entered
                 try{
 

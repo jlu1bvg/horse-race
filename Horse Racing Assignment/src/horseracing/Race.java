@@ -23,6 +23,7 @@ public class Race {
     }
 
     //getters  and setters 
+    
     public List<Horse> getHorses() {
         return horses;
     }
