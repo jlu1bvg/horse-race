@@ -133,7 +133,7 @@ public class Race {
         return increment;
     }
 
-    public void startRace(){
+    public void startRace(int terrainType){
         System.out.println("Race is starting");
         resetHorses();
         int numSpaces = (int)(raceLength*10);
@@ -146,13 +146,26 @@ public class Race {
                 honored = true;
             }
         }
+
+        //custom music
+
         if(honored == true){
             HorseRacingHelper.playBackgroundMusic("Gojo Satoru - The Honored One.wav", true);
         }
+        else if(terrainType==HorseRacingHelper.AIR){
+            HorseRacingHelper.playBackgroundMusic("horse_gallop.wav", true);//change to smth like word of honor
+        }
+        else if(terrainType==HorseRacingHelper.PARADISUS){
+            HorseRacingHelper.playBackgroundMusic("Crab-Rave.wav", true);
+        }
+        else if(terrainType==HorseRacingHelper.KITCHEN){
+            HorseRacingHelper.playBackgroundMusic("Mutation.wav", true);
+            HorseRacingHelper.playBackgroundMusic("minecraft-eating-sound.wav", true);
+            HorseRacingHelper.playBackgroundMusic("minecraft-drinking-sound-effect.wav", true);
+        }
         else{
             HorseRacingHelper.playBackgroundMusic("horse_gallop.wav", true);
-        }
-        
+        }        
 
         while(!done){
             if(honored){

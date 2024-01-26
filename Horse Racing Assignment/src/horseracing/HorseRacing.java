@@ -257,7 +257,7 @@ public class HorseRacing {
             race = HorseRacingHelper.createRace(numHorsesInRace, length, terrain, players,horseList);
             BettingOdds odds = new BettingOdds(race);
             race.displayRaceInfo(odds,terrain);
-            race.startRace();
+            race.startRace(terrain);
             
             //after race stuff
             System.out.println("Race is Over");
