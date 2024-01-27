@@ -59,7 +59,7 @@ public class Race {
             System.out.println("Race Information\n");
             System.out.printf("%-15s %-30s\n","Race Surface: " , raceSurface);
             System.out.printf("%-15s %-30s\n","Race Length: " , raceLength + " furlongs");
-            System.out.println("\nList of Horses:");
+            System.out.println("\nList of Horses:\n");
             /*for (Horse horse : horses) {
                 System.out.println("- " + horse.getName());
             }
