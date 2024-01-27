@@ -53,54 +53,55 @@ public class Race {
 
     //display race info 
     public void displayRaceInfo(BettingOdds odds,int terrain) { 
-        System.out.println("Race Information");
-        System.out.println("Race Surface: " + raceSurface);
-        System.out.println("Race Length: " + raceLength + " furlongs");
-        System.out.println("List of Horses:");
-        /*for (Horse horse : horses) {
-            System.out.println("- " + horse.getName());
-        }
-        */
-        //prints out the horses in a table, formatted by shifting the columns to the left
-        System.out.printf("%-29s| %-18s| %-15s| %-15s| %-15s| %-15s\n", "Horse Name", "Preferred Length", "Terrain Rating", "Win Odds", "Place Odds", "Show Odds");
-
-        //creates the line of dashes as table body
-        for (int i = 0; i < 115; i++){
-            System.out.print("-");
-        }
-        System.out.println();
-        //printing out table
-        for (Horse horse : horses) {
-            //getting odds for win place show
-            int temp = (int)(odds.getOdds(horse, "win")*2);
-            int temp2 = (int)(odds.getOdds(horse, "place")*2); 
-            int temp3 = (int)(odds.getOdds(horse, "show")*2);
-            int terrainRating=0;
-            //getting the terrain rating
-            if (terrain == HorseRacingHelper.GRASS)
-                terrainRating = horse.getGrassRating();
-            else if (terrain == HorseRacingHelper.DIRT)
-                terrainRating = horse.getDirtRating();
-            else if(terrain==HorseRacingHelper.MUD)
-                terrainRating = horse.getMudRating();
-            else if(terrain==HorseRacingHelper.AIR)
-                terrainRating=horse.getAirRating();
-            else if(terrain==HorseRacingHelper.PARADISUS)
-                terrainRating=horse.getParadisusRating();
-            else
-                terrain=horse.getKitchenRating();
-            //printing more table stuff
-            System.out.printf("%-3s %-25s| %-18s| %-15s| %-15s| %-15s| %-15s\n",
-                horse.getNumber()+":",
-                horse.getName(), 
-                horse.getPreferredLength(), 
-                terrainRating,
-                temp % 2 == 0 ? temp/2 + "-1" : temp + "-2", //this is a ternary operator that simplifies an if statement that checks if the number is even or odd
-                temp2 % 2 == 0 ? temp2/2 + "-1" : temp2 + "-2",
-                temp3 % 2 == 0 ? temp3/2 + "-1" : temp3 + "-2"
-            );
-        }
+        
         for(int i=0;i<players.getPlayers().size();i++){ //for each player, create a bet dialogue
+            System.out.println("Race Information\n");
+            System.out.printf("%-15s %-30s\n","Race Surface: " , raceSurface);
+            System.out.printf("%-15s %-30s\n","Race Length: " , raceLength + " furlongs");
+            System.out.println("\nList of Horses:");
+            /*for (Horse horse : horses) {
+                System.out.println("- " + horse.getName());
+            }
+            */
+            //prints out the horses in a table, formatted by shifting the columns to the left
+            System.out.printf("%-29s| %-18s| %-15s| %-15s| %-15s| %-15s\n", "    Horse Name", "Preferred Length", "Terrain Rating", "Win Odds", "Place Odds", "Show Odds");
+
+            //creates the line of dashes as table body
+            for (int j = 0; j < 115; j++){
+                System.out.print("-");
+            }
+            System.out.println();
+            //printing out table
+            for (Horse horse : horses) {
+                //getting odds for win place show
+                int temp = (int)(odds.getOdds(horse, "win")*2);
+                int temp2 = (int)(odds.getOdds(horse, "place")*2); 
+                int temp3 = (int)(odds.getOdds(horse, "show")*2);
+                int terrainRating=0;
+                //getting the terrain rating
+                if (terrain == HorseRacingHelper.GRASS)
+                    terrainRating = horse.getGrassRating();
+                else if (terrain == HorseRacingHelper.DIRT)
+                    terrainRating = horse.getDirtRating();
+                else if(terrain==HorseRacingHelper.MUD)
+                    terrainRating = horse.getMudRating();
+                else if(terrain==HorseRacingHelper.AIR)
+                    terrainRating=horse.getAirRating();
+                else if(terrain==HorseRacingHelper.PARADISUS)
+                    terrainRating=horse.getParadisusRating();
+                else
+                    terrainRating=horse.getKitchenRating();
+                //printing more table stuff
+                System.out.printf("%-3s %-25s| %-18s| %-15s| %-15s| %-15s| %-15s\n",
+                    horse.getNumber()+":",
+                    horse.getName(), 
+                    horse.getPreferredLength(), 
+                    terrainRating,
+                    temp % 2 == 0 ? temp/2 + "-1" : temp + "-2", //this is a ternary operator that simplifies an if statement that checks if the number is even or odd
+                    temp2 % 2 == 0 ? temp2/2 + "-1" : temp2 + "-2",
+                    temp3 % 2 == 0 ? temp3/2 + "-1" : temp3 + "-2"
+                );
+            }
             BetDialogue betDialogue = new BetDialogue(players.getPlayers().get(i));
             betDialogue.CreateBetDialogue(players.getPlayers().get(i), odds, horses);
         }
@@ -134,6 +135,8 @@ public class Race {
     }
 
     public void startRace(int terrainType){
+        System.out.print("\u001B[?25l");
+        HorseRacingHelper.clearConsole();
         System.out.println("Race is starting");
         resetHorses();
         int numSpaces = (int)(raceLength*10);
