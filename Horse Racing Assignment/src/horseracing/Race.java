@@ -7,7 +7,7 @@ public class Race {
     // instance variables
     private List<Horse> horses;
     private double raceLength; // in furlongs
-    private String raceSurface; // "grass", "dirt", or "mud" (Uses HorseRacingHelper constants)
+    private String raceSurface; // "grass", "dirt", or "mud", "air", "paradisus", "kitchen" (Uses HorseRacingHelper constants)
     private int currentHorse;
     private PlayerContainer players;
     private List<Horse> results;
@@ -117,6 +117,7 @@ public class Race {
         }
     }
 
+    //Increment system
     public int getIncrement(Horse horse){ 
         int increment = 1;
         increment += (int)(7 - Math.abs(horse.getPreferredLength()-this.raceLength));

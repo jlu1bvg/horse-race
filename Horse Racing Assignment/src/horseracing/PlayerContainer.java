@@ -7,7 +7,7 @@ public class PlayerContainer {
     private List<Player> players; // List of players
 
     public PlayerContainer() {
-        this.players=new ArrayList<>(); //initializes tjhe arraylist
+        this.players=new ArrayList<>(); //initializes the arraylist
     }
 
     public List<Player> getPlayers() {

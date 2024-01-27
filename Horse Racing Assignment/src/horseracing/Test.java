@@ -30,5 +30,24 @@ public class Test {
                 odds = 18/2; //num = 18
         }
         */
+        /* 
+        if (betOnPosition.equals("n")) {
+            player.placeBet(amount, horseName);
+        } else if (betOnPosition.equals("y")) {
+                int position = 0;
+                boolean validPosEntered = false;
+                while (!validPosEntered) {
+                try {
+                        System.out.println("Which position do you bet on? (say number)");
+                        position = Integer.parseInt(console.nextLine());
+                        validPosEntered = true;
+                } catch (NumberFormatException e) {
+                        System.out.println("eric tan i know it was you");
+                }
+        }
+                player.placeBet(amount, horseName, position);
+                player.placeBet(betType, infos)
+        }
+        */
     }
 }

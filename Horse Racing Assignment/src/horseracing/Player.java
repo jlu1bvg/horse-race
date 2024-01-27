@@ -369,6 +369,7 @@ public class Player {
         this.isHonoredOne = true;
     }
 
+    //Gojo Satoru - anime reference (btw you shoud watch jujutsu kaisen)
     public boolean isHonoredOne(){
         return name.equals("Gojo Satoru") && isHonoredOne;
     }
