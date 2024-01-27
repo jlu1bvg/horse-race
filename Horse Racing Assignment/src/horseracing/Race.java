@@ -117,7 +117,7 @@ public class Race {
         }
     }
 
-    //Increment system
+    //Increment system based off horse preferences and terrain rating
     public int getIncrement(Horse horse){ 
         int increment = 1;
         increment += (int)(7 - Math.abs(horse.getPreferredLength()-this.raceLength));
@@ -213,14 +213,7 @@ public class Race {
 
         HorseRacingHelper.stopMusic();
     }
-    // Other methods for simulating the race, calculating winners, etc., can be added as needed
-
-    /*
-       we only focus on the first 3 places.
-       exacta is built on to a box.
-       box is no order specified.
-    */
-
+    
     public void displayBetResults(){ //this displays the bet results
         System.out.println("\n\nBet Results");
         System.out.println("------------");
