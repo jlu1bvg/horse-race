@@ -72,6 +72,7 @@ public class Player {
                 money -= amount;
                 betT = "win";
                 System.out.println("Bet of " + amount + " placed on " + horse.getName() + " to come first place");
+                HorseRacingHelper.pauseForMilliseconds(2000);
             }else if (betType.toLowerCase().equals("place")){
                 boolean vaildHorseEntered = false;
                 Horse horse=null;
@@ -110,6 +111,7 @@ public class Player {
                 money -= amount;
                 betT = "place";
                 System.out.println("Bet of " + amount + " placed on " + horse.getName() + " to come first or second place");
+                HorseRacingHelper.pauseForMilliseconds(2000);
             }else if (betType.toLowerCase().equals("show")){
                 boolean vaildHorseEntered = false;
                 Horse horse=null;
@@ -147,6 +149,7 @@ public class Player {
                 money -= amount;
                 betT = "show";
                 System.out.println("Bet of " + amount + " placed on " + horse.getName() + " to come first, second or third place");
+                HorseRacingHelper.pauseForMilliseconds(2000);
             }else if (betType.toLowerCase().equals("box")){
                 boolean vaildHorseEntered=false;
                 Horse horse1 = null;
@@ -233,6 +236,7 @@ public class Player {
                     money -= amount;
                     betT = "box";
                     System.out.println("Box bet of " + amount + " placed on " + horse1.getName() + " & " + horse2.getName());
+                    HorseRacingHelper.pauseForMilliseconds(2000);
                 } 
                 
                 //failsafe
@@ -327,6 +331,7 @@ public class Player {
                     money -= amount;
                     betT = "exacta";
                     System.out.println("Exacta bet of " + amount + " placed on " + horse1.getName() + " -> " + horse2.getName());
+                    HorseRacingHelper.pauseForMilliseconds(2000);
                 } 
                 
                 //failsafe
