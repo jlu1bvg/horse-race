@@ -55,6 +55,7 @@ public class Race {
     public void displayRaceInfo(BettingOdds odds,int terrain) { 
         
         for(int i=0;i<players.getPlayers().size();i++){ //for each player, create a bet dialogue
+            HorseRacingHelper.clearConsole();
             System.out.println("Race Information\n");
             System.out.printf("%-15s %-30s\n","Race Surface: " , raceSurface);
             System.out.printf("%-15s %-30s\n","Race Length: " , raceLength + " furlongs");
