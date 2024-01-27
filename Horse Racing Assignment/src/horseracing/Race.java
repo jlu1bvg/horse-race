@@ -126,9 +126,9 @@ public class Race {
             increment += horse.getDirtRating()/2;
         else if(raceSurface.equals("Air"))
             increment += horse.getAirRating()/2;
-        else if(raceSurface.equals("Dirt"))
+        else if(raceSurface.equals("Paradisus Varadero"))
             increment += horse.getParadisusRating()/2;
-        else if(raceSurface.equals("Kitchen"))
+        else if(raceSurface.equals("Mr. Deslauriers Malevolent Kitchen"))
             increment += horse.getKitchenRating()/2;
         return increment;
     }
