@@ -16,6 +16,7 @@ public class HorseRacing {
         }
     }
      public static void main(String[] args) {
+        System.out.print("\u001B[?25l");
         Scanner in = new Scanner(System.in);    
         HorseRacingHelper.prepareHorseRacingSimulation();
         boolean gameOver = false;
@@ -26,7 +27,7 @@ public class HorseRacing {
         while(!validPlayerCount){
 
             //text prompt
-            System.out.print("Number of Players: ");
+            System.out.println("\nNumber of Players: ");
             try{
 
                 //try to convert input to int
@@ -56,7 +57,7 @@ public class HorseRacing {
             while(!nameEntered){
 
                 //text prompt
-                System.out.print("Player " + (i+1) + " name: ");
+                System.out.println("\nPlayer " + (i+1) + " name: ");
                 enteredName=in.nextLine();
 
                 //cant have empty name
@@ -84,7 +85,7 @@ public class HorseRacing {
             while(!validLength){
 
                 //text prompt
-                System.out.print("Choose race length (leave empty for random): \nSHORT\nMIDDLE\nLONG\n");
+                System.out.print("\nChoose race length (leave empty for random): \nSHORT\nMIDDLE\nLONG\n");
                 String input=in.nextLine();
 
                 //sets race length based on input
@@ -118,7 +119,7 @@ public class HorseRacing {
             while(!validTerrain){
 
                 //text prompt
-                System.out.print("Choose race terrain (leave empty for random): \nGRASS\nDIRT\nMUD\nAIR\nPARADISUS\nKITCHEN\n");
+                System.out.print("\nChoose race terrain (leave empty for random): \nGRASS\nDIRT\nMUD\nAIR\nPARADISUS\nKITCHEN\n");
                 String input=in.nextLine();
 
                 //sets terrain type based on input
@@ -170,7 +171,7 @@ public class HorseRacing {
                 while(!validHorse){
 
                     //text prompt
-                    System.out.print("Add horse to race (leave empty to continue): ");
+                    System.out.print("\nAdd horse to race (leave empty to continue): \n");
                     String input=in.nextLine();
 
                     //exits loop
@@ -200,7 +201,7 @@ public class HorseRacing {
             //input for number of horses in race
             boolean validNum=false;
             while(!validNum){
-                System.out.print("Number of horses in race (leave empty for random): ");
+                System.out.print("\nNumber of horses in race (leave empty for random): \n");
                 String input=in.nextLine();
 
                 //sets num horses to random
@@ -282,7 +283,7 @@ public class HorseRacing {
     }
 
     private static String playAgain(Scanner in) {
-        System.out.print("\u001B[?25l");  // Hide the cursor
+        // System.out.print("\u001B[?25l");  // Hide the cursor
         boolean validInput = false;
         String temp = "";
         
@@ -290,7 +291,7 @@ public class HorseRacing {
         while(!validInput){
 
             //text prompt
-            System.out.print("Play Again: (y/n): ");
+            System.out.println("\nPlay Again (y/n): ");
             String result = in.nextLine();
 
             //decision

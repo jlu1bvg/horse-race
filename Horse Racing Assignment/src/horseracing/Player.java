@@ -40,7 +40,7 @@ public class Player {
                 int horseNum=0;
                 //Prompts user for the horse they want to win
                 while(!vaildHorseEntered){
-                    System.out.println("Which horse do u choose? (enter name or number)");
+                    System.out.println("\nWhich horse do u choose? (enter name or number)");
                     String horseName=console.nextLine();
                     //Allows user to enter a number instead of a name for horse
                     try{
@@ -64,7 +64,7 @@ public class Player {
                             }
                         }
                         if(!vaildHorseEntered)
-                            System.out.println("Horse not found. Please try again: ");
+                            System.out.println("Horse not found. Please try again ");
                     }
                 }
                 //Adds your potential winnings to potentialEarnings and takes money away from the wallet.
@@ -78,7 +78,7 @@ public class Player {
                 int horseNum=0;
                 //Prompts user for the horse they want to come first or second
                 while(!vaildHorseEntered){
-                    System.out.println("Which horse do u choose? (enter name or number)");
+                    System.out.println("\nWhich horse do u choose? (enter name or number)");
                     String horseName=console.nextLine();
                     //Allows user to enter a number instead of a name for horse
                     try{
@@ -102,7 +102,7 @@ public class Player {
                             }
                         }
                         if(!vaildHorseEntered)
-                            System.out.println("Horse not found. Please try again: ");
+                            System.out.println("Horse not found. Please try again ");
                     }
                 }
                 //Adds your potential winnings to potentialEarnings and takes money away from the wallet.
@@ -116,7 +116,7 @@ public class Player {
                 int horseNum=0;
                 //Prompts user for the horse they want to come first or second or third
                 while(!vaildHorseEntered){
-                    System.out.println("Which horse do u choose? (enter name or number)");
+                    System.out.println("\nWhich horse do u choose? (enter name or number)");
                     String horseName=console.nextLine();
                     //Allows user to enter a number instead of a name for horse
                     try{
@@ -139,7 +139,7 @@ public class Player {
                             }
                         }
                         if(!vaildHorseEntered)
-                            System.out.println("Horse not found. Please try again: ");
+                            System.out.println("Horse not found. Please try again ");
                     }
                 }
                 //Adds your potential winnings to potentialEarnings and takes money away from the wallet.
@@ -155,7 +155,7 @@ public class Player {
                 while(!vaildHorseEntered){
 
                     //text prompt
-                    System.out.println("Enter the 2 horses you want to box (say name or number) seperated by a COMMA NO SPACES.");
+                    System.out.println("\nEnter the 2 horses you want to box (say name or number) seperated by a COMMA NO SPACES.");
                     
                     //splits input into list
                     String[] horseNames = console.nextLine().split(",");
@@ -190,7 +190,7 @@ public class Player {
 
                         //failsafe
                         if(!vaildHorseEntered)
-                            System.out.println("Horse "+horseNames[0]+" not found. Please try again: ");
+                            System.out.println("Horse "+horseNames[0]+" not found. Please try again ");
                     }
                     try{
 
@@ -223,7 +223,7 @@ public class Player {
 
                         //failsafe
                         if(!vaildHorseEntered)
-                            System.out.println("Horse "+horseNames[1]+" not found. Please try again: ");
+                            System.out.println("Horse "+horseNames[1]+" not found. Please try again ");
                     }
 
                 //creates box bet
@@ -248,7 +248,7 @@ public class Player {
                 while(!vaildHorseEntered){
 
                     //text prompt
-                    System.out.println("Enter the 2 horses you want to exacta box (say name or number) seperated by a COMMA NO SPACES. IN THE ORDER YOU WANT THE EXACTA TO BE.");
+                    System.out.println("\nEnter the 2 horses you want to exacta box (say name or number) seperated by a COMMA NO SPACES. IN THE ORDER YOU WANT THE EXACTA TO BE.");
 
                     //splits input to list
                     String[] horseNames = console.nextLine().split(",");    
@@ -284,7 +284,7 @@ public class Player {
 
                         //horse name failsafe
                         if(!vaildHorseEntered)
-                            System.out.println("Horse not found. Please try again: ");
+                            System.out.println("Horse not found. Please try again ");
                     }    
                     try{
 
@@ -317,7 +317,7 @@ public class Player {
 
                         //second horse name failsafe
                         if(!vaildHorseEntered)
-                            System.out.println("Horse not found. Please try again: ");
+                            System.out.println("Horse not found. Please try again ");
                     }
                 
                 //creates exacta bet
