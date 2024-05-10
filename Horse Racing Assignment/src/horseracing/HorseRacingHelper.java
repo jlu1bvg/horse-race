@@ -61,7 +61,6 @@ public class HorseRacingHelper {
 
                 String[] data = line.split(",");
                 if (data.length == 8) {
-
                     //gets values from csv
                     String name = data[0];
                     int mudRating = Integer.parseInt(data[1]);
