@@ -327,7 +327,7 @@ public class Player {
                 
                 //creates exacta bet
                 if (horse1 != null && horse2 != null) {
-                    double exactaOdds = odds.getOdds(horse1, "win") * odds.getOdds(horse2, "place") + 1;
+                    double exactaOdds = odds.getOdds(horse1, "win") * odds.getOdds(horse2, "place") + 1.5;
                     potentialEarnings.put(horse1.getName() + " -> " + horse2.getName(), (int)(amount * exactaOdds));
                     money -= amount;
                     betT = "exacta";
